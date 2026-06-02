@@ -518,3 +518,73 @@ footer {
         max-height: 400px; /* スマホの画面高に合わせて上限をタイトに */
     }
 }
+/* ==========================================================================
+   14. 作品①専用：横流しギャラリー（CSS Scroll Snap）＆ ADPミニ画像レイアウト
+   ========================================================================== */
+
+/* 02最後：横スクロール・ギャラリー
+   overflow-x: auto と scroll-snap-type により、JavaScriptなしで滑らかな1枚止まりを実現
+*/
+.project-gallery-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch; /* iOSでのスクロールを滑らかにする対策 */
+}
+
+/* スライダー内の各要素：1画面に1.5枚〜2枚見えるように幅を制限 */
+.slider-item {
+    flex: 0 0 60%; /* PC画面で程よく次の画像が見える絶妙なサイズ（60%） */
+    scroll-snap-align: start; /* スクロールが止まる位置を画像の左端に固定 */
+    min-width: 300px;
+}
+
+.slider-item img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+/* 03：ADP演習用の小さめ2連画像
+   max-width を抑え、テキストの邪魔をしないサイズ感に制限
+*/
+.project-adp-thumbs {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    max-width: 700px; /* テキストの幅（700px）に揃えて締まりを出す */
+}
+
+.project-adp-thumbs .thumb-container {
+    flex: 1;
+}
+
+.project-adp-thumbs img {
+    width: 100%;
+    height: 180px; /* 高さを抑えて「小さめの画像」を維持 */
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+/* モバイル環境での最適化：スライダーの幅を広げ、2連画像を縦並びに */
+@media screen and (max-width: 768px) {
+    .slider-item {
+        flex: 0 0 85%; /* スマホでは1枚が大きく見えるように調整 */
+    }
+    
+    .slider-item img {
+        height: 240px;
+    }
+    
+    .project-adp-thumbs {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .project-adp-thumbs img {
+        height: 160px;
+    }
+}
