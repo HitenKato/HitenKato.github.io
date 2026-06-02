@@ -366,3 +366,106 @@ footer {
 .works-grid .work-card:nth-child(2) { transition-delay: 0.1s; }
 .works-grid .work-card:nth-child(3) { transition-delay: 0.2s; }
 .works-grid .work-card:nth-child(4) { transition-delay: 0.3s; }
+
+/* ==========================================================================
+   9. レスポンシブ対応（スマートフォン・モバイル環境への最適化）
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* スマホ画面の極小化に伴い、ベースの余白をタイトに再調整 */
+    body {
+        padding: 0 15px;
+    }
+
+    /* ヘッダー構造の再定義：タイトルとナビゲーションを縦並びにし、右側切れを防止 */
+    header {
+        padding: 40px 0 20px 0;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.8rem; /* スマホ用にフォントサイズを最適化 */
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    /* ナビゲーションを左揃え（アシンメトリー維持）にし、スマホのタップ領域を確保 */
+    nav ul {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    /* メインコンテンツエリアの横幅を画面追従に固定 */
+    main {
+        padding: 30px 0;
+        width: 100%;
+    }
+
+    section {
+        margin-bottom: 60px;
+    }
+
+    /* 【重要】カードが画面外へはみ出るのを防ぐため、最小幅制限を100%幅にリセット */
+    .works-grid {
+        grid-template-columns: 1fr; /* スマホ環境では強制的に1カラム縦並び */
+        gap: 25px;
+    }
+
+    .work-card img {
+        height: 200px; /* スマホの縦横比に合わせて画像の高さを最適化 */
+    }
+
+    .work-card-content {
+        padding: 20px;
+    }
+
+    .work-card h3 {
+        font-size: 1.1rem;
+    }
+
+    /* 自己紹介（About Me）エリアの横並びを解除し、スマホ用に縦構造へ再編集 */
+    .about-flex-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 25px;
+    }
+
+    .profile-thumb {
+        flex: 0 0 auto;
+        width: 100%;    /* 画像の横幅をスマホ画面いっぱいに広げて迫力を出す */
+        height: auto;
+        aspect-ratio: 1 / 1; /* 正方形の比率を維持 */
+    }
+
+    .profile-text {
+        width: 100%;
+    }
+
+    /* スキルセクションのグリッドを2カラムに最適化 */
+    #skills ul {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+    }
+
+    #skills li {
+        padding: 15px;
+    }
+
+    /* 個別プロジェクトページの最適化 */
+    .project-hero img {
+        max-height: 300px;
+    }
+
+    .project-images-sub {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-images-sub .img-container {
+        width: 100%;
+    }
+}
