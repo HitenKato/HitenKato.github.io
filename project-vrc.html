@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRChat 3D空間・ルックデザイン | 加藤 飛天 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+    <header>
+        <p class="nav-back"><a href="index.html">&larr; Return to Top</a></p>
+        <h1>VRChat 3D空間・ルックデザイン</h1>
+        <p class="tagline">3D空間におけるルック開発（Look Dev）と、コミュニティの文化に寄り添うビジュアル表現の模索</p>
+    </header>
+
+    <main>
+        <section class="project-hero">
+            <img src="images/vrc/vrc-main.jpg" alt="VRChat内での撮影・レタッチ完成成果物">
+        </section>
+
+        <section class="project-meta">
+            <div class="meta-grid">
+                <div>
+                    <h4>Role</h4>
+                    <p>3D Look Development, Photography, Retouching</p>
+                </div>
+                <div>
+                    <h4>Tools</h4>
+                    <p>Unity, Photoshop, Blender, VRChat SDK</p>
+                </div>
+                <div>
+                    <h4>Period</h4>
+                    <p>2025.07 - Present</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-body">
+            
+            <div class="block">
+                <h2>01. 概要</h2>
+                <p>2025年7月よりVRChat内での創作活動を開始。既存の3Dアセットを単純に組み合わせる「アバター改変」の枠に留まらず、異なる制作者によって作られたアセット間のマテリアル・ライティングの不一致を解決する最適化（ルック開発）を実践しています。また、情報デザインの理論に基づいた構図設計や、コミュニティの文化的背景を汲み取ったレタッチワークフローを構築しています。</p>
+            </div>
+
+            <div class="block">
+                <h2>02. 課題とアプローチ</h2>
+                
+                <h3>異素材アセットの最適化と「チャームポイント」の設計</h3>
+                <p>市販の3Dアセットを組み合わせる際、販売元ごとにシェーダー設定やテクスチャのライティング前提が異なるため、そのまま配置すると全体のシルエットや質感がバラバラになる課題がありました。これに対し、Unityの画面上（Editor）だけでなく、多様なライティング環境を持つ実際のVRChatのワールド群（実機）へ何度も足を運び、見え方を微調整。マテリアル設定やシェーダーのパラメータを統一することで、空間に馴染む最適なルックへと昇華させました。また、全体を調和させつつも、キャラクターを一言で言い表せる「チャームポイント」を意図的に配置し、個性を引き立たせています。</p>
+                
+                <h3>CG空間の特性を活かしたカメラワークとレタッチ</h3>
+                <p>リアルのカメラ機能を再現した仮想カメラギミックを用い、三分割法などの構図や被写界深度（フォーカス）を徹底。さらに、CG空間ならではの利便性である「自在なカメラ配置」や「ポーズの完全固定」といった長所を活かし、ワールドとアバターが最も美しく調和する瞬間を切り取っています。</p>
+            </div>
+
+            <div class="block project-images-sub">
+                <div class="img-container">
+                    <img src="images/vrc/vrc-before.jpg" alt="レタッチ前（生データ）">
+                    <p class="caption">// レタッチ前（生データ）</p>
+                </div>
+                <div class="img-container">
+                    <img src="images/vrc/vrc-after.jpg" alt="レタッチ後（完成版）">
+                    <p class="caption">// レタッチ後（完成版）：文化的背景（イラスト調）を意識したトーン調整</p>
+                </div>
+            </div>
+
+            <div class="block">
+                <h3>文化に寄り添う質感表現とメディアを跨いだ表現の多様性</h3>
+                <p>VRChatのコミュニティ（主にX等のSNS）においては、写実的な写真よりも「一枚絵のイラストチックな質感」が好まれるという文化特有のトレンドが存在します。この背景を分析し、ワールド制作者が意図した光の向きや空気感をリスペクトしつつ、Photoshopを用いてトーンカーブやカラーバランスを調整しました。時には、3Dアバターの切り抜きを現実の風景写真へ合成する表現にも挑戦し、メディアの境界を曖昧にする表現の多様性を模索しています。</p>
+            </div>
+
+            <div class="block">
+                <h2>03. リアルへの還元：ADP演習への応用</h2>
+                <p>他学類（芸術専門学群）との合同演習「アート・デザインプロデュース演習（ADP）」において、茨城県常総市の外国人移住者向けに、言葉の壁を越えて直感的に分別がわかる「ゴミ捨て場可動看板」を制作した際、このVRChatでの知見を応用しました。設置後のゴミ捨て場一帯を撮影し、フォトグラメトリ（ポリゴンデータ化）によって3D空間へと再構築。これをVRChat上にアップロードすることで、学内や行政の方々が現地に赴くことなく空間を把握できる「バーチャル視察アセット（PR動画の素材）」としての活用を提案。リアルな立体物をバーチャルに還元し、広報や検証の可能性を広げる思考を養いました。</p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hiten Kato. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
