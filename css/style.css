@@ -1,15 +1,17 @@
 @charset "UTF-8";
 
 /* ==========================================================================
-   1. 共通変数・基本設定（保守性を考慮しカラーパレットを定義）
+   1. デザインシステム・変数の定義（インダストリアル・ミニマリズム）
    ========================================================================== */
 :root {
-    --bg-color: #f8f9fa;
-    --text-color: #212529;
-    --accent-color: #007bff; /* 主要なボタンやリンクのアクセント */
-    --card-bg: #ffffff;
-    --border-color: #dee2e6;
-    --max-width: 960px; /* 視線移動が広くなりすぎないよう最大幅を制限 */
+    --bg-color: #fafafa;
+    --text-color: #111111;
+    --text-muted: #666666;
+    --accent-color: #000000; /* 曖昧な色を排除し、黒と白のコントラストを主軸に */
+    --border-color: #222222;  /* 強い直線を生かすための濃いめのボーダー */
+    --border-light: #e0e0e0;
+    --max-width: 1040px;
+    --grid-size: 20px;       /* 背景の方眼グリッドのサイズ */
 }
 
 * {
@@ -18,262 +20,269 @@
     padding: 0;
 }
 
+/* 背景にCSSのみで20px四方の方眼グリッドを描画。
+   3D空間の「座標軸」や「設計図（Blue Print）」を視覚的にオマージュ。
+*/
 body {
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    line-height: 1.7;
+    font-family: "Roboto Mono", "Noto Sans JP", sans-serif;
+    line-height: 1.8;
     color: var(--text-color);
     background-color: var(--bg-color);
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    padding: 0 20px;
 }
 
 /* ==========================================================================
-   2. レイアウト（ヘッダー・ナビゲーション・フッター）
+   2. レイアウト ＆ 構造（ヘッダー・ナビゲーション）
    ========================================================================== */
 header {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 40px 20px 20px 20px;
+    padding: 80px 0 40px 0;
+    border-bottom: 2px solid var(--border-color);
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 5px;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+    margin-bottom: 15px;
 }
 
 .tagline {
-    font-size: 1rem;
-    color: #6c757d;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+/* 右寄せのアシンメトリーなナビゲーション */
+nav {
+    margin-top: 40px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
+    justify-content: flex-end;
+    gap: 30px;
 }
 
 nav a {
     color: var(--text-color);
     text-decoration: none;
-    font-weight: bold;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
 }
 
-nav a:hover {
-    color: var(--accent-color);
+/* ホバー時にアンダーラインをソリッドに表示 */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 main {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 20px;
+    padding: 60px 0;
 }
 
 section {
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 section h2 {
-    font-size: 1.5rem;
-    border-left: 4px solid var(--accent-color);
-    padding-left: 10px;
-    margin-bottom: 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 0.9rem;
-    color: #6c757d;
-    border-top: 1px solid var(--border-color);
-    background-color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    display: inline-block;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
 }
 
 /* ==========================================================================
-   3. コンポーネント（Works：グリッドレイアウト）
+   3. コンポーネント（Works：ソリッド・データ構造）
    ========================================================================== */
-/* 2カラム・3カラムへの拡張性を考慮し、CSS Gridでカードを配置 */
+/* 無難なカード型を廃止。
+   太いボーダーラインと直線を主軸とした、建築的なグリッドレイアウトへ変更。
+*/
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
 }
 
 .work-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border-color);
+    background-color: #ffffff;
+    padding: 0; /* 内側の余白を一度リセット */
+    transition: background-color 0.2s ease;
 }
 
-/* ホバー時の挙動（インタラクションへの配慮をアピール） */
+/* ホバー時は影を落とさず、背景色を反転に近い形で変化させ緊張感を演出 */
 .work-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    background-color: #f0f0f0;
 }
 
 .work-card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover; /* 画像の比率を崩さずにトリミング */
-    background-color: #e9ecef; /* 画像読み込み前のフォールバックカラー */
-    border-radius: 4px;
-    margin-bottom: 15px;
+    height: 260px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* テキストエリアを枠線で囲む */
+.work-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .work-card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
 .work-card p {
-    font-size: 0.9rem;
-    color: #495057;
-    margin-bottom: 20px;
-    flex-grow: 1; /* テキスト量に関わらずボタンの位置を最下部に揃える */
+    font-size: 0.85rem;
+    color: #444444;
+    margin-bottom: 30px;
+    flex-grow: 1;
 }
 
-/* 汎用ボタンスタイル */
+/* ボタンのデザイン：無難な丸みを排除し、完全な長方形のソリッドなボタンへ */
 .btn {
     display: inline-block;
-    text-align: center;
+    align-self: flex-start;
     background-color: var(--text-color);
     color: #ffffff;
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color);
 }
 
 .btn:hover {
-    background-color: var(--accent-color);
+    background-color: #ffffff;
+    color: var(--text-color);
 }
 
 /* ==========================================================================
-   4. コンポーネント（Skills：リストレイアウト）
+   4. About ＆ Skills セクションの最適化
    ========================================================================== */
+.profile-container {
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
 #skills ul {
     list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
 #skills li {
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px dashed var(--border-color);
+    border: 1px solid var(--border-light);
+    background-color: #ffffff;
+    padding: 20px;
 }
 
-#skills li:last-child {
-    border-bottom: none;
+#skills li strong {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
 }
+
 /* ==========================================================================
-   5. 個別ページ（Project Detail）用のインダストリアル・スタイル
+   5. 個別ページ（Project Detail）用のレイアウト調整
    ========================================================================== */
-
-/* 全体のフォントをAIテンプレから、プロ仕様の硬質ゴシック＋等幅に変更 */
-body {
-    font-family: "Roboto Mono", "Noto Sans JP", sans-serif;
-}
-
 .nav-back {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    font-size: 0.85rem;
+    margin-bottom: 30px;
 }
 
-.nav-back a {
-    color: #6c757d;
-    text-decoration: none;
-}
-
-/* メインビジュアル：ドロップシャドウなどの無難な装飾を排し、断ち切りに近いソリッドな配置 */
 .project-hero img {
     width: 100%;
     height: auto;
-    max-height: 500px;
+    max-height: 550px;
     object-fit: cover;
     border: 1px solid var(--border-color);
 }
 
-/* メタデータエリア：エンジニアの仕様書（データシート）のような無機質で機能的なデザイン */
+.project-hero img.img-contain {
+    max-height: none;
+    object-fit: contain;
+}
+
 .project-meta {
-    margin-top: 30px;
-    padding: 20px 0;
+    margin: 40px 0;
+    padding: 25px 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
 
-.meta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
 .meta-grid h4 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    color: #6c757d;
+    font-size: 0.75rem;
+    color: var(--text-muted);
     margin-bottom: 5px;
-    font-weight: 700;
 }
 
 .meta-grid p {
-    font-size: 0.95rem;
-    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-/* 本文エリア */
+.project-body h2 {
+    font-size: 1.3rem;
+    margin: 40px 0 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
 .project-body h3 {
-    font-size: 1.2rem;
-    margin: 30px 0 10px 0;
-    color: var(--text-color);
+    font-size: 1.05rem;
+    margin: 25px 0 10px 0;
 }
 
 .project-body p {
-    font-size: 0.95rem;
-    color: #333333;
-    margin-bottom: 20px;
-    text-align: justify; /* テキストの左右端を揃えて美観を向上 */
+    font-size: 0.9rem;
+    color: #222222;
 }
 
-.project-body .block {
-    margin-bottom: 40px;
-}
-
-/* 画像比較エリア：2枚の画像を綺麗に横並びにする */
-.project-images-sub {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 30px 0;
-}
-
-.project-images-sub .img-container {
-    flex: 1;
-    min-width: 280px;
-}
-
-.project-images-sub img {
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--border-color);
-}
-
-.project-images-sub .caption {
+footer {
+    max-width: var(--max-width);
+    margin: 100px auto 0 auto;
+    text-align: left; /* 中央寄せを廃止し、左揃えで統一 */
+    padding: 40px 0;
     font-size: 0.8rem;
-    color: #6c757d;
-    margin-top: 5px;
-}
-/* ==========================================================================
-   6. ユーティリティ（グラフィック等のトリミングを防止する個別設定）
-   ========================================================================== */
-/* ポスターやUI等、縦横比を崩さず、かつ上下左右を一切切らずに全体表示したい画像に適用 */
-.project-hero img.img-contain {
-    max-height: none;       /* 縦幅の制限を解除し、画像の本来の比率を維持 */
-    object-fit: contain;     /* トリミングをせず、領域内に全体を収める */
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-light);
 }
