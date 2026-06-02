@@ -3,34 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>加藤 飛天 | Portfolio</title>
+    <title>Hiten's Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ヘッダー（名前とナビゲーション） -->
     <header>
-        <h1>加藤 飛天 / Hiten Kato</h1>
-        <p class="tagline">デザインの視点を持つ、情報メディア創成学類の3Dクリエイター / エンジニア候補</p>
+        <h1>Hiten's Portfolio</h1>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
                 <li><a href="#works">Works</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- 自己紹介セクション -->
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="profile-container">
-                <p>筑波大学 情報学群 情報メディア創成学類に在籍。技術とクリエイティブの融合に興味を持ち、3DCG（Blender/Unity）を用いたルック開発や空間表現、2Dグラフィックデザイン、インタラクティブなアプリケーション開発を幅広く実践しています。</p>
-            </div>
-        </section>
-
-        <!-- 作品一覧セクション（ここから各個別ページへリンク） -->
         <section id="works">
             <h2>Works</h2>
             <div class="works-grid">
@@ -74,7 +68,20 @@
             </div>
         </section>
 
-        <!-- スキル一覧セクション（面接官が一番最初に見る重要な部分） -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-flex-container">
+                <div class="profile-thumb">
+                    <img src="images/icon.jpg" alt="加藤 飛天">
+                </div>
+                <div class="profile-text">
+                    <h3>加藤 飛天 / Hiten Kato</h3>
+                    <p class="profile-sub">筑波大学 情報学群 情報メディア創成学類 3年</p>
+                    <p>技術とクリエイティブの融合に興味を持ち、3DCG（Blender/Unity）を用いたルック開発や空間表現、2Dグラフィックデザイン、インタラクティブなアプリケーション開発を幅広く実践しています。計算やインフラの領域に留まらず、人間の視覚にダイレクトに届く可視化されたコンテンツ、エンタテインメント表現に関わるクリエイター / テクニカルアーティストを目指しています。</p>
+                </div>
+            </div>
+        </section>
+
         <section id="skills">
             <h2>Skills</h2>
             <ul>
