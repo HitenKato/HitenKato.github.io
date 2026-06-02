@@ -464,3 +464,25 @@ footer {
         width: 100%;
     }
 }
+/* ==========================================================================
+   10. ロゴヘッダー（Idea A）専用のソリッド・レイアウト
+   ========================================================================== */
+header h1 img {
+    display: block;
+    max-width: 480px; /* PCではロゴを大きく魅せてインパクトを出す */
+    height: auto;
+    margin-bottom: 20px;
+    /* ホバー時にわずかにシャープに動かし、インタラクション性を付与 */
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+header h1 img:hover {
+    transform: scale(1.03) rotate(-1deg);
+}
+
+/* スマホ環境（メディアクエリ内）でのロゴの大きさ調整 */
+@media screen and (max-width: 768px) {
+    header h1 img {
+        max-width: 280px; /* スマホ画面でもはみ出さず、かつ存在感をキープ */
+    }
+}
