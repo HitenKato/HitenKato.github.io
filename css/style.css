@@ -286,3 +286,56 @@ footer {
     color: var(--text-muted);
     border-top: 1px solid var(--border-light);
 }
+/* ==========================================================================
+   7. 自己紹介（About Me）エリアの横並びアシンメトリーレイアウト
+   ========================================================================== */
+.about-flex-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* 画面幅が狭いときは自動で縦並びにフォールバック */
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 40px;
+}
+
+/* プロフィール画像のコンテナ：無難な丸型を避け、インダストリアルな正方形かつ太線で囲む */
+.profile-thumb {
+    flex: 0 0 240px;
+    width: 240px;
+    height: 240px;
+    border: 1px solid var(--border-color);
+    background-color: #e9ecef; /* 画像がない場合のフォールバックカラー */
+}
+
+.profile-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 比率を維持してコンテナに収める */
+}
+
+/* テキストエリア */
+.profile-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-text h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.profile-text p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #222222;
+    text-align: justify;
+}
