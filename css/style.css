@@ -486,3 +486,68 @@ header h1 img:hover {
         max-width: 280px; /* スマホ画面でもはみ出さず、かつ存在感をキープ */
     }
 }
+/* ==========================================================================
+   11. 起動時オープニング演出（スプラッシュスクリーン）のレイアウト＆アニメーション
+   ========================================================================== */
+
+/* 画面全体を覆う暗転用スクリーン（最初は表示、JSでクラス付与されたらフェードアウト） */
+#opening-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fafafa; /* 背景の方眼紙と同じ色、または#000000（完全な黒）にするとよりゲームの起動画面風に */
+    z-index: 9999;             /* すべての要素の最前面に固定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+    pointer-events: none;      /* アニメーション終了後に下のコンテンツのクリックを妨げないための配慮 */
+}
+
+/* 中央のロゴを最初はやや大きく、カチッと表示 */
+.opening-logo-wrapper {
+    max-width: 600px;
+    width: 80%;
+    opacity: 0;
+    transform: scale(0.95);
+    /* ページロード直後に中央ロゴをフェードインさせるための指定 */
+    animation: openingFlash 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+}
+
+.opening-logo {
+    width: 100%;
+    height: auto;
+}
+
+/* ヘッダー内に置く本来のロゴ画像の基本サイズ定義（透過PNG前提） */
+header h1 img.header-logo {
+    display: block;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 20px;
+    background: transparent; /* 背景透過を確実に保証 */
+}
+
+/* JSによって演出終了クラスがボディに付与された際、スクリーンを消去 */
+body.is-loaded #opening-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 中央ロゴの起動時フェードイン・キーフレーム（15%の時点で最大化、100%まで維持） */
+@keyframes openingFlash {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
