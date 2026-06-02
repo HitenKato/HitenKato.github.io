@@ -343,29 +343,24 @@ footer {
    8. インダストリアル・フェードイン（Intersection Observer用アニメーション）
    ========================================================================== */
 
-/* スクロール時の発火対象となるセクション（初期状態）
-   無難な浮遊感を排除するため、移動距離は15pxと最小限に留め、シャープに立ち上がらせる
-*/
 .js-fade-in {
     opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform; /* GPUレンダリングを最適化し、スクロール時のガタつきを防止 */
+    transform: translateY(40px); /* 浮き上がりの距離を伸ばして動きを認識しやすく変更 */
+    /* 1.0sに微延長。イージングを「最初は速く、後半は極めて滑らかに減速する」プロ仕様の数値(0.25, 1, 0.5, 1)へ調整 */
+    transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1), transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
 }
 
-/* JavaScriptによってクラスが付与された際の発火状態 */
 .js-fade-in.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Works内のカード群（.work-card）に時間差（ディレイ）を発生させ、
-   左から右へ「構造体が組み立てられていく」ようなインダストリアルな視覚効果を演出
-*/
+/* カードが順番に上がってくる時間差（ディレイ）を広げ、構築のプロセスをより明示的視覚化 */
 .works-grid .work-card:nth-child(1) { transition-delay: 0.0s; }
-.works-grid .work-card:nth-child(2) { transition-delay: 0.1s; }
-.works-grid .work-card:nth-child(3) { transition-delay: 0.2s; }
-.works-grid .work-card:nth-child(4) { transition-delay: 0.3s; }
+.works-grid .work-card:nth-child(2) { transition-delay: 0.2s; } /* 0.1s → 0.2s */
+.works-grid .work-card:nth-child(3) { transition-delay: 0.4s; } /* 0.2s → 0.4s */
+.works-grid .work-card:nth-child(4) { transition-delay: 0.6s; } /* 0.3s → 0.6s */
 
 /* ==========================================================================
    9. レスポンシブ対応（スマートフォン・モバイル環境への最適化）
