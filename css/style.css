@@ -172,3 +172,100 @@ footer {
 #skills li:last-child {
     border-bottom: none;
 }
+/* ==========================================================================
+   5. 個別ページ（Project Detail）用のインダストリアル・スタイル
+   ========================================================================== */
+
+/* 全体のフォントをAIテンプレから、プロ仕様の硬質ゴシック＋等幅に変更 */
+body {
+    font-family: "Roboto Mono", "Noto Sans JP", sans-serif;
+}
+
+.nav-back {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.nav-back a {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+/* メインビジュアル：ドロップシャドウなどの無難な装飾を排し、断ち切りに近いソリッドな配置 */
+.project-hero img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+/* メタデータエリア：エンジニアの仕様書（データシート）のような無機質で機能的なデザイン */
+.project-meta {
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.meta-grid h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.meta-grid p {
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+/* 本文エリア */
+.project-body h3 {
+    font-size: 1.2rem;
+    margin: 30px 0 10px 0;
+    color: var(--text-color);
+}
+
+.project-body p {
+    font-size: 0.95rem;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: justify; /* テキストの左右端を揃えて美観を向上 */
+}
+
+.project-body .block {
+    margin-bottom: 40px;
+}
+
+/* 画像比較エリア：2枚の画像を綺麗に横並びにする */
+.project-images-sub {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.project-images-sub .img-container {
+    flex: 1;
+    min-width: 280px;
+}
+
+.project-images-sub img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+}
+
+.project-images-sub .caption {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
