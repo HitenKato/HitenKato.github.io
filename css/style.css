@@ -588,3 +588,21 @@ footer {
         height: 160px;
     }
 }
+/* ==========================================================================
+   15. スライダー内画像のスタイル競合バグ修正（最優先適用）
+   ========================================================================== */
+/* セクション5の全般画像設定（width: 100%; height: auto;）がスライダー内に
+   干渉するのを防ぐため、詳細度を上げて明示的に上書き再定義。
+*/
+.project-gallery-slider .slider-item img {
+    width: 100% !important;  /* 親要素である .slider-item の幅（60%）に完全に固定 */
+    height: 360px !important; /* 高さを360pxに固定して、縦への巨大化を防止 */
+    object-fit: cover;
+}
+
+/* スマホ環境下での高さの上書き設定 */
+@media screen and (max-width: 768px) {
+    .project-gallery-slider .slider-item img {
+        height: 240px !important; /* スマホでは高さを240pxに縮小 */
+    }
+}
