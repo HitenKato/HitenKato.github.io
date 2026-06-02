@@ -339,3 +339,30 @@ footer {
     color: #222222;
     text-align: justify;
 }
+/* ==========================================================================
+   8. インダストリアル・フェードイン（Intersection Observer用アニメーション）
+   ========================================================================== */
+
+/* スクロール時の発火対象となるセクション（初期状態）
+   無難な浮遊感を排除するため、移動距離は15pxと最小限に留め、シャープに立ち上がらせる
+*/
+.js-fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform; /* GPUレンダリングを最適化し、スクロール時のガタつきを防止 */
+}
+
+/* JavaScriptによってクラスが付与された際の発火状態 */
+.js-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Works内のカード群（.work-card）に時間差（ディレイ）を発生させ、
+   左から右へ「構造体が組み立てられていく」ようなインダストリアルな視覚効果を演出
+*/
+.works-grid .work-card:nth-child(1) { transition-delay: 0.0s; }
+.works-grid .work-card:nth-child(2) { transition-delay: 0.1s; }
+.works-grid .work-card:nth-child(3) { transition-delay: 0.2s; }
+.works-grid .work-card:nth-child(4) { transition-delay: 0.3s; }
