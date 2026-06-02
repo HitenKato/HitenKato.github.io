@@ -7,11 +7,11 @@
     --bg-color: #fafafa;
     --text-color: #111111;
     --text-muted: #666666;
-    --accent-color: #000000; /* 曖昧な色を排除し、黒と白のコントラストを主軸に */
-    --border-color: #222222;  /* 強い直線を生かすための濃いめのボーダー */
+    --accent-color: #000000;
+    --border-color: #222222;
     --border-light: #e0e0e0;
     --max-width: 1040px;
-    --grid-size: 20px;       /* 背景の方眼グリッドのサイズ */
+    --grid-size: 20px;
 }
 
 * {
@@ -20,9 +20,6 @@
     padding: 0;
 }
 
-/* 背景にCSSのみで20px四方の方眼グリッドを描画。
-   3D空間の「座標軸」や「設計図（Blue Print）」を視覚的にオマージュ。
-*/
 body {
     font-family: "Roboto Mono", "Noto Sans JP", sans-serif;
     line-height: 1.8;
@@ -53,13 +50,6 @@ header h1 {
     margin-bottom: 15px;
 }
 
-.tagline {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    max-width: 600px;
-}
-
-/* 右寄せのアシンメトリーなナビゲーション */
 nav {
     margin-top: 40px;
 }
@@ -80,7 +70,6 @@ nav a {
     position: relative;
 }
 
-/* ホバー時にアンダーラインをソリッドに表示 */
 nav a::after {
     content: '';
     position: absolute;
@@ -119,9 +108,6 @@ section h2 {
 /* ==========================================================================
    3. コンポーネント（Works：ソリッド・データ構造）
    ========================================================================== */
-/* 無難なカード型を廃止。
-   太いボーダーラインと直線を主軸とした、建築的なグリッドレイアウトへ変更。
-*/
 .works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -133,11 +119,10 @@ section h2 {
     flex-direction: column;
     border: 1px solid var(--border-color);
     background-color: #ffffff;
-    padding: 0; /* 内側の余白を一度リセット */
+    padding: 0;
     transition: background-color 0.2s ease;
 }
 
-/* ホバー時は影を落とさず、背景色を反転に近い形で変化させ緊張感を演出 */
 .work-card:hover {
     background-color: #f0f0f0;
 }
@@ -149,7 +134,6 @@ section h2 {
     border-bottom: 1px solid var(--border-color);
 }
 
-/* テキストエリアを枠線で囲む */
 .work-card-content {
     padding: 25px;
     display: flex;
@@ -171,7 +155,6 @@ section h2 {
     flex-grow: 1;
 }
 
-/* ボタンのデザイン：無難な丸みを排除し、完全な長方形のソリッドなボタンへ */
 .btn {
     display: inline-block;
     align-self: flex-start;
@@ -199,6 +182,55 @@ section h2 {
     max-width: 700px;
     font-size: 1rem;
     line-height: 1.9;
+}
+
+.about-flex-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 40px;
+}
+
+.profile-thumb {
+    flex: 0 0 240px;
+    width: 240px;
+    height: 240px;
+    border: 1px solid var(--border-color);
+    background-color: #e9ecef;
+}
+
+.profile-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-text h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.profile-text p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #222222;
+    text-align: justify;
 }
 
 #skills ul {
@@ -277,76 +309,46 @@ section h2 {
     color: #222222;
 }
 
+.project-images-sub {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.project-images-sub .img-container {
+    flex: 1;
+    min-width: 280px;
+}
+
+.project-images-sub img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+}
+
+.project-images-sub .caption {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
 footer {
     max-width: var(--max-width);
     margin: 100px auto 0 auto;
-    text-align: left; /* 中央寄せを廃止し、左揃えで統一 */
+    text-align: left;
     padding: 40px 0;
     font-size: 0.8rem;
     color: var(--text-muted);
     border-top: 1px solid var(--border-light);
 }
+
 /* ==========================================================================
-   7. 自己紹介（About Me）エリアの横並びアシンメトリーレイアウト
+   6. インダストリアル・フェードイン（スクロールアニメーション）
    ========================================================================== */
-.about-flex-container {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-    flex-wrap: wrap; /* 画面幅が狭いときは自動で縦並びにフォールバック */
-    background-color: #ffffff;
-    border: 1px solid var(--border-color);
-    padding: 40px;
-}
-
-/* プロフィール画像のコンテナ：無難な丸型を避け、インダストリアルな正方形かつ太線で囲む */
-.profile-thumb {
-    flex: 0 0 240px;
-    width: 240px;
-    height: 240px;
-    border: 1px solid var(--border-color);
-    background-color: #e9ecef; /* 画像がない場合のフォールバックカラー */
-}
-
-.profile-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 比率を維持してコンテナに収める */
-}
-
-/* テキストエリア */
-.profile-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.profile-text h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.profile-sub {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.profile-text p {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: #222222;
-    text-align: justify;
-}
-/* ==========================================================================
-   8. インダストリアル・フェードイン（Intersection Observer用アニメーション）
-   ========================================================================== */
-
 .js-fade-in {
     opacity: 0;
-    transform: translateY(40px); /* 浮き上がりの距離を伸ばして動きを認識しやすく変更 */
-    /* 1.0sに微延長。イージングを「最初は速く、後半は極めて滑らかに減速する」プロ仕様の数値(0.25, 1, 0.5, 1)へ調整 */
+    transform: translateY(40px);
     transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1), transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: opacity, transform;
 }
@@ -356,35 +358,30 @@ footer {
     transform: translateY(0);
 }
 
-/* カードが順番に上がってくる時間差（ディレイ）を広げ、構築のプロセスをより明示的視覚化 */
 .works-grid .work-card:nth-child(1) { transition-delay: 0.0s; }
-.works-grid .work-card:nth-child(2) { transition-delay: 0.2s; } /* 0.1s → 0.2s */
-.works-grid .work-card:nth-child(3) { transition-delay: 0.4s; } /* 0.2s → 0.4s */
-.works-grid .work-card:nth-child(4) { transition-delay: 0.6s; } /* 0.3s → 0.6s */
+.works-grid .work-card:nth-child(2) { transition-delay: 0.2s; }
+.works-grid .work-card:nth-child(3) { transition-delay: 0.4s; }
+.works-grid .work-card:nth-child(4) { transition-delay: 0.6s; }
 
 /* ==========================================================================
-   9. レスポンシブ対応（スマートフォン・モバイル環境への最適化）
+   7. レスポンシブ対応（モバイル最適化）
    ========================================================================== */
 @media screen and (max-width: 768px) {
-    
-    /* スマホ画面の極小化に伴い、ベースの余白をタイトに再調整 */
     body {
         padding: 0 15px;
     }
 
-    /* ヘッダー構造の再定義：タイトルとナビゲーションを縦並びにし、右側切れを防止 */
     header {
         padding: 40px 0 20px 0;
         width: 100%;
     }
 
     header h1 {
-        font-size: 1.8rem; /* スマホ用にフォントサイズを最適化 */
+        font-size: 1.8rem;
         line-height: 1.1;
         margin-bottom: 20px;
     }
 
-    /* ナビゲーションを左揃え（アシンメトリー維持）にし、スマホのタップ領域を確保 */
     nav ul {
         justify-content: flex-start;
         gap: 20px;
@@ -394,7 +391,6 @@ footer {
         font-size: 0.8rem;
     }
 
-    /* メインコンテンツエリアの横幅を画面追従に固定 */
     main {
         padding: 30px 0;
         width: 100%;
@@ -404,14 +400,13 @@ footer {
         margin-bottom: 60px;
     }
 
-    /* 【重要】カードが画面外へはみ出るのを防ぐため、最小幅制限を100%幅にリセット */
     .works-grid {
-        grid-template-columns: 1fr; /* スマホ環境では強制的に1カラム縦並び */
+        grid-template-columns: 1fr;
         gap: 25px;
     }
 
     .work-card img {
-        height: 200px; /* スマホの縦横比に合わせて画像の高さを最適化 */
+        height: 200px;
     }
 
     .work-card-content {
@@ -422,7 +417,6 @@ footer {
         font-size: 1.1rem;
     }
 
-    /* 自己紹介（About Me）エリアの横並びを解除し、スマホ用に縦構造へ再編集 */
     .about-flex-container {
         flex-direction: column;
         gap: 30px;
@@ -431,16 +425,15 @@ footer {
 
     .profile-thumb {
         flex: 0 0 auto;
-        width: 100%;    /* 画像の横幅をスマホ画面いっぱいに広げて迫力を出す */
+        width: 100%;
         height: auto;
-        aspect-ratio: 1 / 1; /* 正方形の比率を維持 */
+        aspect-ratio: 1 / 1;
     }
 
     .profile-text {
         width: 100%;
     }
 
-    /* スキルセクションのグリッドを2カラムに最適化 */
     #skills ul {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 15px;
@@ -450,7 +443,6 @@ footer {
         padding: 15px;
     }
 
-    /* 個別プロジェクトページの最適化 */
     .project-hero img {
         max-height: 300px;
     }
@@ -462,92 +454,5 @@ footer {
 
     .project-images-sub .img-container {
         width: 100%;
-    }
-}
-/* ==========================================================================
-   10. ロゴヘッダー（Idea A）専用のソリッド・レイアウト
-   ========================================================================== */
-header h1 img {
-    display: block;
-    max-width: 480px; /* PCではロゴを大きく魅せてインパクトを出す */
-    height: auto;
-    margin-bottom: 20px;
-    /* ホバー時にわずかにシャープに動かし、インタラクション性を付与 */
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-header h1 img:hover {
-    transform: scale(1.03) rotate(-1deg);
-}
-
-/* スマホ環境（メディアクエリ内）でのロゴの大きさ調整 */
-@media screen and (max-width: 768px) {
-    header h1 img {
-        max-width: 280px; /* スマホ画面でもはみ出さず、かつ存在感をキープ */
-    }
-}
-/* ==========================================================================
-   11. 起動時オープニング演出（スプラッシュスクリーン）のレイアウト＆アニメーション
-   ========================================================================== */
-
-/* 画面全体を覆う暗転用スクリーン（最初は表示、JSでクラス付与されたらフェードアウト） */
-#opening-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #fafafa; /* 背景の方眼紙と同じ色、または#000000（完全な黒）にするとよりゲームの起動画面風に */
-    z-index: 9999;             /* すべての要素の最前面に固定 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
-    pointer-events: none;      /* アニメーション終了後に下のコンテンツのクリックを妨げないための配慮 */
-}
-
-/* 中央のロゴを最初はやや大きく、カチッと表示 */
-.opening-logo-wrapper {
-    max-width: 600px;
-    width: 80%;
-    opacity: 0;
-    transform: scale(0.95);
-    /* ページロード直後に中央ロゴをフェードインさせるための指定 */
-    animation: openingFlash 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
-}
-
-.opening-logo {
-    width: 100%;
-    height: auto;
-}
-
-/* ヘッダー内に置く本来のロゴ画像の基本サイズ定義（透過PNG前提） */
-header h1 img.header-logo {
-    display: block;
-    max-width: 320px;
-    height: auto;
-    margin-bottom: 20px;
-    background: transparent; /* 背景透過を確実に保証 */
-}
-
-/* JSによって演出終了クラスがボディに付与された際、スクリーンを消去 */
-body.is-loaded #opening-screen {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* 中央ロゴの起動時フェードイン・キーフレーム（15%の時点で最大化、100%まで維持） */
-@keyframes openingFlash {
-    0% {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    30% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
     }
 }
