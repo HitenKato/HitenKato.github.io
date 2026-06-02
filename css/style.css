@@ -468,3 +468,53 @@ footer {
     width: auto;        /* 横幅100%を解除し、比率に合わせて自動縮小 */
     margin: 0 0 10px 0; /* 左揃えのインダストリアルなレイアウトを維持 */
 }
+
+/* ==========================================================================
+   13. 個別ページ用：テキスト・画像 左右分割（2カラム）レイアウト
+   ========================================================================== */
+
+/* PC環境ではFlexboxを使用し、テキストと縦長画像を美しく左右に整列。
+   align-items: flex-start により、画像の高さにテキストが引っ張られるのを防止。
+*/
+.project-split-container {
+    display: flex;
+    gap: 40px; /* 2カラム間のソリッドな余白を確保 */
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* 左側テキスト：全体の60%の幅を割り当て、読みやすさを担保 */
+.split-text {
+    flex: 0 0 60%;
+}
+
+/* 右側画像：残りの領域を充当し、画像がはみ出さないようにマキシマムを指定 */
+.split-image-container {
+    flex: 1;
+    min-width: 0; /* Flexbox内の画像縮小バグを防止するセーフティ */
+}
+
+/* 2カラム内の縦型画像スタイルを上書き最適化 */
+.split-image-container img.img-vertical {
+    width: 100%;       /* 親コンテナ（右側エリア）の幅にピタッと合わせる */
+    max-height: 500px; /* PC画面で一目で全体が収まる高さに微調整 */
+    object-fit: contain;
+    margin: 0 0 10px 0;
+}
+
+/* モバイル環境（スマホ画面）でのフォールバック処理をメディアクエリで明示 */
+@media screen and (max-width: 768px) {
+    .project-split-container {
+        flex-direction: column; /* スマホでは強制的に縦並び1カラムへ変更 */
+        gap: 20px;
+    }
+    
+    .split-text,
+    .split-image-container {
+        width: 100%; /* 横幅いっぱいに広げる */
+    }
+    
+    .split-image-container img.img-vertical {
+        max-height: 400px; /* スマホの画面高に合わせて上限をタイトに */
+    }
+}
