@@ -606,3 +606,51 @@ footer {
         height: 240px !important; /* スマホでは高さを240pxに縮小 */
     }
 }
+/* ==========================================================================
+   16. 作品①専用：ADPセクションの画像比率最適化 ＆ 透過PNG表示バグ修正
+   ========================================================================== */
+
+/* 1200*800の横長検証画像と、縦型完成写真をバランスよく見せるための比率定義 */
+.adp-section .flex-60 {
+    flex: 0 0 58%; /* 左側のUnity検証画面を大きく見せる */
+}
+
+.adp-section .flex-40 {
+    flex: 0 0 38%; /* 右側の完成写真を適切な幅に抑える */
+}
+
+/* 左側：Unity合成画面（1200*800 / 3:2比率）の歪み・はみ出しを防止 */
+.adp-section img.img-adp-large {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 800; /* 1200*800の比率を完全に固定して潰れを防止 */
+    object-fit: contain;      /* 透過PNGの周囲が切り取られないように保護 */
+    background: transparent;  /* 透過を維持 */
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+/* 右側：完成写真の縦長スタイル調整 */
+.adp-section img.img-adp-vertical {
+    width: 100%;
+    height: auto;
+    max-height: 400px;        /* 左側の1200*800画像の高さと揃うように上限を設定 */
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+/* スマホ環境では、窮屈にならないよう1カラム（縦並び）へ自動フォールバック */
+@media screen and (max-width: 768px) {
+    .adp-section .flex-60,
+    .adp-section .flex-40 {
+        width: 100%;
+        flex: none;
+    }
+    
+    .adp-section img.img-adp-large,
+    .adp-section img.img-adp-vertical {
+        max-height: none;
+        height: auto;
+    }
+}
