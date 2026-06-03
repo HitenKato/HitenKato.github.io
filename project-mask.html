@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>身体データを基にしたフルフェイスマスクの設計と立体出力 | 加藤 飛天 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+    <header>
+        <p class="nav-back"><a href="index.html">&larr; Return to Top</a></p>
+        <h1>身体データを基にしたフルフェイスマスクの設計と立体出力</h1>
+        <p class="tagline">3D空間でのバーチャルフィッティング、3Dプリンターによる工業出力、およびアナログ造形技術の融合</p>
+    </header>
+
+    <main>
+        <section class="project-hero">
+            <img src="images/mask/mask-main.jpg" alt="フルフェイスマスク完成成果物">
+        </section>
+
+        <section class="project-meta">
+            <div class="meta-grid">
+                <div>
+                    <h4>Role</h4>
+                    <p>3D Modeling, Digital Fitting, 3D Printing, Painting</p>
+                </div>
+                <div>
+                    <h4>Tools / Hardware</h4>
+                    <p>Blender, FDM 3D Printer, Airbrush</p>
+                </div>
+                <div>
+                    <h4>Period</h4>
+                    <p>2025.12 - 2026.01</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-body">
+            
+            <div class="block">
+                <h2>01. 概要</h2>
+                <p>三次元デジタルデータと物理的な造形技術の往来をテーマに、個人の身体データを基準としたフルフェイスマスクの設計・出力を実施。Blenderを用いた三次元空間上での高精度なフィッティング検証から、3Dプリンターを用いたハードウェア出力、エアブラシ塗装による質感表現まで、デジタルとアナログの全行程をワンストップで遂行したプロジェクトです。</p>
+            </div>
+
+            <div class="block">
+                <h2>02. 設計ロジックと三次元検証</h2>
+                
+                <div class="project-split-container">
+                    
+                    <div class="split-text">
+                        <h3>身体データに基づくバーチャルフィッティング</h3>
+                        <p>装飾品として実際に人間が着用可能であり、かつ密着性と快適性を両立させるため、事前に取得した頭部の三次元身体データをベースに設計を開始しました。Blender上で身体メッシュとマスクの裏面構造を重ね合わせ、干渉する部分をミリ単位でスカルプト・変形調整。物理的な試作を何度も繰り返すことなく、デジタル空間上で装着時のクリアランスを完全に計算・最適化しました。</p>
+                        
+                        <h3>プロダクトとしての構造設計</h3>
+                        <p>外見の意匠性（キャラクターデザイン）を追求しつつも、3Dプリンターで出力する際の積層方向や、サポート材が極力少なくなるようなパーツ分割、強度を保つための肉厚の均一化など、工業製品としての製造効率を意識したデータ作成を行いました。</p>
+                    </div>
+                    
+                    <div class="split-image-container">
+                        <img src="images/mask/mask-fit.jpg" alt="Blenderによるバーチャルフィッティング画面" class="img-vertical">
+                        <p class="caption">// 三次元検証：頭部データとマスク構造のフィッティングおよびクリアランスの最適化</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="block">
+                <h2>03. 物理出力とアナログ造形への昇華</h2>
+                
+                <div class="project-split-container">
+                    
+                    <div class="split-text">
+                        <h3>3Dプリンターによる高精度な実物出力</h3>
+                        <p>設計した3Dデータをスライサーソフトにインポートし、充填率（インフィル）や積層ピッチを最適化してFDM方式の3Dプリンターで出力。デジタルデータ通りの歪みのない正確な物理骨格を得るため、温度管理やベッドのレベリングといったハードウェア特有の制約を制御して出力を行いました。</p>
+                        
+                        <h3>質感を制御する後加工とエアブラシ塗装</h3>
+                        <p>3Dプリンター特有の積層痕を消去するため、目の細かいサンドペーパーでの研磨とパテ・サフェーサーによる表面処理を徹底的に反復。凹凸を完全にフラットにした後、エアブラシを用いて陰影や光沢度を計算した独自のカラーリングを施しました。デジタル空間で想定していたイメージを、素材の特性を活かしながら物理世界に物質化させる技術を習得しています。</p>
+                    </div>
+                    
+                    <div class="split-image-container">
+                        <img src="images/mask/mask-print.jpg" alt="3Dプリンター出力および後加工プロセス" class="img-vertical">
+                        <p class="caption">// 製造プロセス：積層痕の研磨処理とエアブラシを用いた表面質感の制御</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hiten Kato. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
