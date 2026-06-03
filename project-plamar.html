@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR学校地図アプリ「PLAMAR」 | 加藤 飛天 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+    <header>
+        <p class="nav-back"><a href="index.html">&larr; Return to Top</a></p>
+        <h1>AR学校地図アプリ「PLAMAR」</h1>
+        <p class="tagline">UnityとARFoundationを用いた、校内案内を直感化するスマートフォン向けARアプリケーション</p>
+    </header>
+
+    <main>
+        <section class="project-hero">
+            <img src="images/plamar/plamar-main.jpg" alt="AR学校地図アプリ PLAMAR 動作画面" class="img-contain">
+        </section>
+
+        <section class="project-meta">
+            <div class="meta-grid">
+                <div>
+                    <h4>Role</h4>
+                    <p>Unity Application Development, UI/UX Design</p>
+                </div>
+                <div>
+                    <h4>Tools / SDK</h4>
+                    <p>Unity (C#), ARFoundation</p>
+                </div>
+                <div>
+                    <h4>Period</h4>
+                    <p>高校時代開発</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-body">
+            
+            <div class="block">
+                <h2>01. 概要</h2>
+                <p>高校在学時に、校内の複雑な構造を解消し、新入生や来校者が直感的に目的地を把握できるようにすることを目的として開発したスマートフォン向けAR（拡張現実）ナビゲーションアプリ。UnityとARFoundationを採用し、現実の空間に校内地図や進行方向のガイドを重ねて表示するシステムを構築しました。</p>
+            </div>
+
+            <div class="block">
+                <h2>02. 技術的アプローチと実装内容</h2>
+                
+                <div class="project-split-container">
+                    
+                    <div class="split-text">
+                        <h3>平面検知と画像マーカーの併用による位置合わせ</h3>
+                        <p>AR空間上のオブジェクトを現実の校内環境と正確に同期させるため、ARFoundationが提供する平面検知機能と画像追跡（イメージトラッキング）機能を組み合わせて実装しました。校内の特定の壁面や床面に設置した独自の画像マーカーをスマートフォンのカメラで認識させることで、空間の原点（基準位置）を確定。そこから床面の平面を自動検知して三次元の地図データを生成し、歩行時のズレを最小限に抑える仕組みを作りました。</p>
+                        
+                        <h3>Unity上での効率的な座標設計</h3>
+                        <p>実際の校舎の図面を基に、Unityのエディタ上で各教室や通路の位置関係を三次元のノードとして配置。カメラの位置情報（自己位置推定）と連動して、現在地から目的地までの最短ルートを床面上に矢印などの3Dオブジェクトとして動的に描画する簡易的な経路案内システムを試作しました。</p>
+                    </div>
+                    
+                    <div class="split-image-container">
+                        <img src="images/plamar/plamar-dev.jpg" alt="UnityでのARFoundation実装・デバッグ画面" class="img-vertical">
+                        <p class="caption">// 開発プロセス：Unity上でのARマーカー検知および3Dルート描画のロジック検証</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="block">
+                <h2>03. 開発を通して得られた知見</h2>
+                <p>外部のプラグインやアセットをただ組み合わせるだけでなく、デバイスのスペックによる検知精度の限界や、光の環境変化によってARの追従が外れてしまうといった、実機開発特有の物理的な課題に直面しました。これらの問題に対し、マーカーのコントラストの調整や、検知が外れた際に自動で再キャリブレーション（位置補正）を行うリセットボタンを画面上に設けるなど、UI/UXの観点からアプローチを試みました。この経験が、現在の大学での情報メディア分野の学びや、より高度な3D・xRコンテンツ開発への興味の原点となっています。</p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hiten Kato. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
