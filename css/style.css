@@ -607,34 +607,34 @@ footer {
     }
 }
 /* ==========================================================================
-   16. 作品①専用：ADPセクションの画像比率最適化 ＆ 透過PNG表示バグ修正
+   16. 作品①専用：ADPセクションの画像比率最適化 ＆ 透過PNG表示バグ修正（再調整版）
    ========================================================================== */
 
-/* 1200*800の横長検証画像と、縦型完成写真をバランスよく見せるための比率定義 */
+/* 1079*497のワイド検証画面と、縦型完成写真をバランスよく見せるための比率定義 */
 .adp-section .flex-60 {
-    flex: 0 0 58%; /* 左側のUnity検証画面を大きく見せる */
+    flex: 0 0 62%; /* ワイドな画像をしっかり魅せるために少し幅を広げる */
 }
 
 .adp-section .flex-40 {
-    flex: 0 0 38%; /* 右側の完成写真を適切な幅に抑える */
+    flex: 0 0 34%; /* 右側の写真を適切な幅に収めて全体のバランスを維持 */
 }
 
-/* 左側：Unity合成画面（1200*800 / 3:2比率）の歪み・はみ出しを防止 */
-.adp-section img.img-adp-large {
+/* 左側：Unity合成画面（1079*497比率、枠線なし透過仕様） */
+.adp-section img.img-adp-wide {
     width: 100%;
     height: auto;
-    aspect-ratio: 1200 / 800; /* 1200*800の比率を完全に固定して潰れを防止 */
-    object-fit: contain;      /* 透過PNGの周囲が切り取られないように保護 */
-    background: transparent;  /* 透過を維持 */
-    border: 1px solid var(--border-color);
+    aspect-ratio: 1079 / 497; /* 1079*497の比率を完全に固定して歪みを防止 */
+    object-fit: contain;
+    background: transparent;  /* 背景を完全に透過 */
+    border: none !important;  /* 枠線を完全に消去し、透過オブジェクトを背景に馴染ませる */
     margin-bottom: 10px;
 }
 
-/* 右側：完成写真の縦長スタイル調整 */
+/* 右側：完成写真の縦長スタイル調整（こちらは境界をはっきりさせるため枠線を維持） */
 .adp-section img.img-adp-vertical {
     width: 100%;
     height: auto;
-    max-height: 400px;        /* 左側の1200*800画像の高さと揃うように上限を設定 */
+    max-height: 340px;        /* 左側のワイド画像の高さと揃うように上限を再調整 */
     object-fit: cover;
     border: 1px solid var(--border-color);
     margin-bottom: 10px;
@@ -648,7 +648,7 @@ footer {
         flex: none;
     }
     
-    .adp-section img.img-adp-large,
+    .adp-section img.img-adp-wide,
     .adp-section img.img-adp-vertical {
         max-height: none;
         height: auto;
