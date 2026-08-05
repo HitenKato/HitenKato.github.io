@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRストラックアウト | 加藤 飛天 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+    <header>
+        <p class="nav-back"><a href="index.html">&larr; Return to Top</a></p>
+        <h1>VRストラックアウト</h1>
+        <p class="tagline">Bullet PhysicsとOpenXRを用いた実践的物理シミュレーション</p>
+    </header>
+
+    <main>
+        <section class="project-hero">
+            <img src="images/vr/vr-main.jpg" alt="VRストラックアウト 動作画面" class="img-contain">
+        </section>
+
+        <section class="project-meta">
+            <div class="meta-grid">
+                <div>
+                    <h4>Role</h4>
+                    <p>VR Application Development, Physics Simulation</p>
+                </div>
+                <div>
+                    <h4>Tools / SDK</h4>
+                    <p>C++, Meta OpenXR SDK, Bullet Physics, OpenGL, Blender</p>
+                </div>
+                <div>
+                    <h4>Period</h4>
+                    <p>2026.04 - 2026.08（大学 情報メディア実験）</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-body">
+            
+            <div class="block">
+                <h2>01. 概要とコンセプト</h2>
+                <p>VR空間内で直感的に物体を操作し、物理法則に従ったインタラクションを体験できるストラックアウトゲームを開発しました。単に既存のゲームエンジン（UnityやUnreal Engineなど）を使用するのではなく、Meta OpenXR SDKを基盤とし、C++を用いて物理エンジン（Bullet Physics）とグラフィックスパイプラインを直接制御・連携させることで、低レイヤーからのアプリケーション構築を実践しています。</p>
+            </div>
+
+            <div class="block">
+                <h2>02. 物理演算によるインタラクションの実装</h2>
+                <p>VRコントローラーの入力を用いて、6自由度拘束（btGeneric6DofConstraint）を動的に生成・破棄することで「ボールを掴んで投げる」直感的なアクションを実現しました。また、的（パネル）にはヒンジ拘束（btHingeConstraint）を適用し、ボールが命中した際に物理法則に従って自然に後方へ倒れ込むギミックを構築しています。剛速球によるオブジェクトのすり抜け現象（トンネリング）に対しては、連続衝突判定（CCD）を導入して解決を図りました。</p>
+            </div>
+
+            <div class="block">
+                <h2>03. 描画パイプラインの独自拡張と最適化</h2>
+                
+                <div class="project-split-container">
+                    
+                    <div class="split-text">
+                        <h3>シェーダーの直接改修（Unlit化）</h3>
+                        <p>開発環境の標準GLBローダーにおいて、複雑なマテリアルが黒く潰れてしまう不具合に直面しました。この仕様の壁を突破するため、C++側のフラグメントシェーダー（GLSL）を直接解析。ライティング計算を強制的にスキップし、テクスチャの色をそのまま出力する「Unlit（陰影なし）シェーダー」へとソースコードレベルで改造を行いました。</p>
+                        
+                        <h3>3Dアセットの最適化</h3>
+                        <p>描画負荷とメモリ上限の制約をクリアするため、Blenderを用いて自作した3Dモデル（ボール、的、バスケット、木など）の徹底した最適化を実施しました。ポリゴン数の削減はもちろん、テクスチャ解像度を512x512ピクセルに制限し、単色オブジェクトにも画像テクスチャを強制的に割り当てる運用ルールを敷くことで、VR空間での軽量かつ鮮やかな描画を確立しています。</p>
+                    </div>
+                    
+                    <div class="split-image-container">
+                        <img src="images/vr/vr-dev.jpg" alt="BlenderでのモデリングおよびC++実装画面" class="img-vertical">
+                        <p class="caption">// 開発画面：Blenderによるローポリゴンモデリングと最適化</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hiten Kato. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
