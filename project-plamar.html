@@ -1,92 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR学校地図アプリ「PLAMAR」 | 加藤 飛天 Portfolio</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2ec">
+  <meta name="description" content="複雑な校舎を三次元で見られたら。高校時代に発案し、友人と2人で開発したAR学校地図アプリ「PLAMAR」です。">
+  <title>校内の「迷う」を、ARでほどく | 加藤 飛天 Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <header>
-        <p class="nav-back"><a href="index.html">&larr; Return to Top</a></p>
-        <h1>AR学校地図アプリ「PLAMAR」</h1>
-        <p class="tagline">福島県立福島高校 SS部 情報班：AR技術を用いた校内生活の利便化に関する研究開発</p>
-    </header>
-
-    <main>
-        <section class="project-hero">
-            <img src="images/plamar/plamar-main.jpg" alt="AR学校地図アプリ PLAMAR 動作画面" class="img-contain">
-        </section>
-
-        <section class="project-meta">
-            <div class="meta-grid">
-                <div>
-                    <h4>Role</h4>
-                    <p>Unity Application Development (Fukushima High School SS Club)</p>
-                </div>
-                <div>
-                    <h4>Tools / SDK</h4>
-                    <p>Unity, ARFoundation, Xcode, Android Studio, Photoshop</p>
-                </div>
-                <div>
-                    <h4>Period</h4>
-                    <p>2021.04 - 2022.03（高校時代開発）</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-body">
-            
-            <div class="block">
-                <h2>01. 概要と研究背景</h2>
-                <p>高校の課題研究において、校内の複雑な動線や複数階層にわたる位置把握の難しさを解消することを目的に開発。従来の平面地図が持つ「空間の立体的な照合が困難である」という課題に対し、スマートフォンを用いたAR（拡張現実）技術を導入することで、視覚的・直感的に三次元構造を把握できるシステムを検証しました。</p>
-            </div>
-
-            <div class="block">
-                <h2>02. チーム開発における役割とアプローチ</h2>
-                <p>本プロジェクトは自身が発案して立ち上げ、実制作にあたっては2人のチームで集中してUnityでの開発に取り組みました。また、開発チーム内に閉じず、その他の班員とも密にコミュニケーションを継続。校内生活における具体的な課題のヒアリングや、機能の有用性に関する客観的な意見交換を重ねることで、独りよがりな実装にならないようプロジェクト全体を主導しました。</p>
-            </div>
-
-            <div class="block">
-                <h2>03. 3D空間へのアプローチと実装機能</h2>
-                
-                <div class="project-split-container">
-                    
-                    <div class="split-text">
-                        <h3>画像認識による3Dモデル・情報の提示</h3>
-                        <p>空間の基準（原点）を確定させるため、校内環境に配置した特定の画像マーカーを認識する仕組みを実装。カメラを通すことで、自身の現在地を含む校舎全体の3Dモデルが現実空間に出現する仕様としました。また、校内発表用のポスターデータを仮想的に空間へ掲示するアプローチも試み、物理的な掲示スペースの制約をデジタルで補完する検証も行っています。</p>
-                        
-                        <h3>平面検知による自由な空間配置</h3>
-                        <p>ARFoundationの平面検知機能を用い、マーカーの有無に関わらず、床面を認識させて任意の場所に3D地図オブジェクトを生成・配置するシステムを構築。縮尺の変更や削除など、ユーザーの環境に合わせた操作系も合わせて実装しました。</p>
-                    </div>
-                    
-                    <div class="split-image-container">
-                        <img src="images/plamar/plamar-dev.jpg" alt="UnityでのARFoundation実装・デバッグ画面" class="img-vertical">
-                        <p class="caption">// 開発画面：3Dモデルの配置検証</p>
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="block">
-                <h2>04. 現在の視点と技術的ルーツ</h2>
-                <p>外部のプラグインをただ組み合わせるだけでなく、実機での検知精度の限界や、環境光の変化によって認識が外れてしまうといった、現実の物理空間とデジタルデータを同期させる際特有の課題に直面。当時は画面上にリセットボタンを設けるなどのUI面からのアプローチを試みました。</p>
-                <p>「課題解決のために自らプロジェクトを立ち上げ、チームを巻き込んで三次元データで空間を拡張する」というこの時の経験が、現在の大学での情報メディア分野への進学動機となり、現在のBlenderを用いた造形やUnityでの空間表現といった創作活動の強固な原点となっています。</p>
-            </div>
-
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Hiten Kato. All Rights Reserved.</p>
-    </footer>
-
-    <script src="js/main.js"></script>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header>
+    <p class="nav-back"><a href="index.html#works">← 作品一覧に戻る</a></p>
+    <p class="eyebrow">AR / チーム制作 / 2021–22</p>
+    <h1>校内の「迷う」を、ARでほどく</h1>
+    <p class="tagline">複雑な校舎を三次元で見られたら。高校時代に発案し、友人と2人で開発したAR学校地図アプリ「PLAMAR」です。</p>
+  </header>
+  <main id="main">
+    <figure class="project-hero"><img src="images/plamar/plamar-main.webp" alt="校舎の3D地図を表示するPLAMARの画面"></figure>
+    <section class="project-meta" aria-label="制作情報"><div class="meta-grid">
+      <div><h4>担当</h4><p>発案・共同開発 / 福島高校 SS部</p></div>
+      <div><h4>道具</h4><p>Unity / AR Foundation / Xcode / Android Studio</p></div>
+      <div><h4>制作時期</h4><p>2021.04–2022.03</p></div>
+    </div></section>
+    <div class="project-body"><section class="block"><h2>はじまり</h2><p>校内の平面地図だけでは、階をまたぐ場所の関係がつかみにくい。高校の課題研究でその困りごとに着目し、校舎の3Dモデルを現実の空間に重ねて見られるアプリを発案しました。友人と2人でUnityによる開発を進めました。</p></section><section class="block"><h2>試した二つの置き方</h2><h3>画像マーカーから表示する</h3><p>特定の画像をカメラで認識し、その位置を基準に校舎の3Dモデルを表示。ポスターのデータをARで見せる使い方も試しました。</p><h3>床を見つけて表示する</h3><p>AR Foundationの平面検知を使い、床面に地図を置く方法も実装。縮尺の変更や削除をできるようにし、場所に合わせて確認できるようにしました。</p></section><section class="block"><h2>今につながること</h2><p>実機では環境光や検知精度によって表示がずれることがあり、リセット操作を加えるなどして対応しました。現実の空間とデジタルの形を合わせる難しさと面白さを知った、今の制作の出発点です。</p></section>
+      <section class="block"><h2>制作の記録</h2><div class="process-gallery"><figure class="process-figure"><img src="images/plamar/plamar-dev.webp" alt="Unityで校舎の3Dモデルを配置する開発画面" loading="lazy"><figcaption>校舎モデルの配置を検証</figcaption></figure></div></section>
+      <nav class="project-end-nav" aria-label="作品ページの移動"><a href="index.html#works">← 作品一覧へ</a><a href="project-mask.html">次の作品を見る ↗</a></nav>
+    </div>
+  </main>
+  <footer><p>© 2026 Hiten Kato</p></footer>
 </body>
 </html>
