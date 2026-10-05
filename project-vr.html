@@ -1,87 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VRストラックアウト | 加藤 飛天 Portfolio</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2ec">
+  <meta name="description" content="VR空間でボールをつかみ、投げ、的を倒す。C++と物理エンジンを使い、ストラックアウトの一連の手触りを実装しました。">
+  <title>投げる感覚を、コードでつくる | 加藤 飛天 Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <header>
-        <p class="nav-back"><a href="index.html">&larr; Return to Top</a></p>
-        <h1>VRストラックアウト</h1>
-        <p class="tagline">大学ゼミ制作：Bullet PhysicsとOpenXRを用いた実践的物理シミュレーション</p>
-    </header>
-
-    <main>
-        <section class="project-hero">
-            <img src="images/vr/vr-main.jpg" alt="VRストラックアウト 動作画面" class="img-contain">
-        </section>
-
-        <section class="project-meta">
-            <div class="meta-grid">
-                <div>
-                    <h4>Role</h4>
-                    <p>VR Application Development, Physics Simulation</p>
-                </div>
-                <div>
-                    <h4>Tools / SDK</h4>
-                    <p>C++, Meta OpenXR SDK, Bullet Physics, Blender</p>
-                </div>
-                <div>
-                    <h4>Period</h4>
-                    <p>2026.04 - 2026.08</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-body">
-            
-            <div class="block">
-                <h2>01. 概要と背景</h2>
-                <p>大学のゼミにおいて、物理エンジンBullet Physicsを用いたアプリケーション開発について学び、その集大成としてVR空間内で直感的に物体を操作できるストラックアウトゲームを制作しました。既存のゲームエンジンを使用せず、C++を用いて低レイヤーから物理演算とVR描画を連携させる実装に挑戦しています。</p>
-            </div>
-
-            <div class="block">
-                <h2>02. OpenXRと物理エンジンの統合および座標同期</h2>
-                <p>開発にあたり、Meta OpenXR SDKとBullet PhysicsをC++上で統合しました。環境構築の際、静的ライブラリのリンクエラーが多発したため、プロジェクト内に物理エンジンのソースコードを直接配置して一元コンパイルする手法をとり、開発環境を安定させました。</p>
-                <p>また、VR特有の描画サイクルのため生のOpenGL機能が制限される中、SDKが提供する描画ラッパーを活用しています。プログラム内で物理エンジンが計算した座標の変換行列から位置と回転を個別に抽出し、プレイヤーの視点移動分を逆行列で補正して描画モデルに渡すという、物理と描画の座標同期システムを自作して組み込みました。</p>
-            </div>
-
-            <div class="block">
-                <h2>03. 物理演算によるインタラクションの実装</h2>
-                
-                <div class="project-split-container">
-                    
-                    <div class="split-text">
-                        <h3>物理拘束を用いた掴みと投球のアクション</h3>
-                        <p>プレイヤーがVRコントローラーでボールを掴む動作は、キネマティック剛体とボールの間に6自由度拘束を動的に生成することで実装しました。トリガーを離した瞬間にこの拘束を解除し、直前のフレームとの手の移動差分からベクトルを算出してボールに初速度を与えることで、自然な投球感覚を再現しています。</p>
-                        
-                        <h3>的の挙動とすり抜け対策</h3>
-                        <p>的となるパネルの挙動には、下辺を軸としたヒンジ拘束を採用し、ボール命中時に後方へ90度だけ倒れ込むメカニクスを構築しました。さらに、剛速球によるオブジェクトのすり抜け現象を防ぐため、ボールの生成処理に連続衝突判定を組み込むなど、ゲームとしての遊びやすさとシミュレーションの正確性を両立するコードを実装しています。</p>
-                    </div>
-                    
-                    <div class="split-image-container">
-                        <img src="images/vr/vr-dev.jpg" alt="BlenderでのモデリングおよびC++実装画面" class="img-vertical">
-                        <p class="caption">開発画面：Blenderによる3Dアセットの作成とC++での実装</p>
-                    </div>
-                    
-                </div>
-            </div>
-
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Hiten Kato. All Rights Reserved.</p>
-    </footer>
-
-    <script src="js/main.js"></script>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header>
+    <p class="nav-back"><a href="index.html#works">← 作品一覧に戻る</a></p>
+    <p class="eyebrow">VR / C++ / 2026</p>
+    <h1>投げる感覚を、コードでつくる</h1>
+    <p class="tagline">VR空間でボールをつかみ、投げ、的を倒す。C++と物理エンジンを使い、ストラックアウトの一連の手触りを実装しました。</p>
+  </header>
+  <main id="main">
+    <figure class="project-hero"><img src="images/vr/vr-main.webp" alt="VRストラックアウトの的が並ぶプレイ画面"></figure>
+    <section class="project-meta" aria-label="制作情報"><div class="meta-grid">
+      <div><h4>担当</h4><p>個人制作 / VRアプリ開発</p></div>
+      <div><h4>道具</h4><p>C++ / OpenXR / Bullet Physics / Blender</p></div>
+      <div><h4>制作時期</h4><p>2026.04–08</p></div>
+    </div></section>
+    <div class="project-body"><section class="block"><h2>何をつくったか</h2><p>大学の演習で、Bullet Physicsによる物理シミュレーションを学び、その成果としてVRストラックアウトを制作しました。既成のゲームエンジンには頼らず、C++で物理計算とVRでの描画・操作をつないでいます。</p></section><section class="block"><h2>触り心地を支える実装</h2><h3>つかむ、離す、飛ぶ</h3><p>コントローラーとボールの間に6自由度の拘束をつくり、握った感覚を表現しました。離した瞬間には直前の手の動きから速度を求め、ボールに与えています。</p><h3>当たった後も自然に</h3><p>的には衝突を検知して倒れる仕組みを設けました。ボールが的を通り抜けないよう衝突判定を調整し、遊びとしてのわかりやすさと物理挙動の両方を確かめました。</p></section><section class="block"><h2>制作で残ったこと</h2><p>物理エンジンが計算した位置と回転をVRの描画へ渡す際、座標の扱いを揃える必要がありました。目に見える小さな違和感の裏に、計算と表現の接続があることを実感しました。</p></section>
+      <section class="block"><h2>制作の記録</h2><div class="process-gallery"><figure class="process-figure"><img src="images/vr/vr-dev.webp" alt="Blenderでのアセット制作と開発画面" loading="lazy"><figcaption>3Dアセットの制作と実装</figcaption></figure></div></section>
+      <nav class="project-end-nav" aria-label="作品ページの移動"><a href="index.html#works">← 作品一覧へ</a><a href="project-vrc.html">次の作品を見る ↗</a></nav>
+    </div>
+  </main>
+  <footer><p>© 2026 Hiten Kato</p></footer>
 </body>
 </html>
