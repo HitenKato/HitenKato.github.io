@@ -1,36 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f2ec">
-  <meta name="description" content="顔の形に合わせて、データから実物まで。Blenderでの設計、3D出力、塗装を通して、身に着けられるマスクを制作しました。">
-  <title>自分の顔から、マスクをつくる | 加藤 飛天 Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/portfolio-v2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>身体データを基にしたフルフェイスマスクの設計と立体出力 | 加藤 飛天 Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">本文へ移動</a>
-  <header>
-    <p class="nav-back"><a href="index.html#works">← 作品一覧に戻る</a></p>
-    <p class="eyebrow">3D造形 / 2025</p>
-    <h1>自分の顔から、マスクをつくる</h1>
-    <p class="tagline">顔の形に合わせて、データから実物まで。Blenderでの設計、3D出力、塗装を通して、身に着けられるマスクを制作しました。</p>
-  </header>
-  <main id="main">
-    <figure class="project-hero"><img src="images/mask/mask-main.webp" alt="完成した黒いフルフェイスマスク"></figure>
-    <section class="project-meta" aria-label="制作情報"><div class="meta-grid">
-      <div><h4>担当</h4><p>個人制作 / モデリング・出力・塗装</p></div>
-      <div><h4>道具</h4><p>Blender / 3Dプリンター / エアブラシ</p></div>
-      <div><h4>制作時期</h4><p>2025.04–09</p></div>
-    </div></section>
-    <div class="project-body"><section class="block"><h2>きっかけと完成形</h2><p>サークルでのコスプレ制作に向けて、自分が着用するフルフェイスマスクをつくりました。見た目を整えるだけでなく、顔に当たらず着脱できる形にすることが目標でした。</p></section><section class="block"><h2>データから実物へ</h2><h3>まず、自分の顔に合わせる</h3><p>スマートフォンで顔をスキャンし、得られたメッシュをBlenderに読み込みました。顔とマスクの間に必要な余裕を確かめながら形を調整し、出力を前提にパーツを分けました。</p><h3>出力してからも、形をつくる</h3><p>FlashPrintで積層方向などを調整して出力。積層痕を研磨し、パテとサーフェーサーで表面を整えた後、エアブラシで色を重ねました。画面では見えなかった凹凸を、手で確認しながら仕上げています。</p></section><section class="block"><h2>制作で残ったこと</h2><p>Blenderで形を決めても、素材の厚みや出力面の粗さで印象は変わります。デジタルでの設計と、実物に触れてからの調整を往復する面白さを知った制作です。</p></section>
-      <section class="block"><h2>制作の記録</h2><div class="process-gallery"><figure class="process-figure"><img src="images/mask/mask-fit.webp" alt="顔のスキャンデータとマスク形状を合わせた検証" loading="lazy"><figcaption>顔のスキャンを基準に形を調整</figcaption></figure><figure class="process-figure"><img src="images/mask/mask-print.webp" alt="3D出力後のマスクの仕上げ工程" loading="lazy"><figcaption>出力後の研磨と表面処理</figcaption></figure></div></section>
-      <nav class="project-end-nav" aria-label="作品ページの移動"><a href="index.html#works">← 作品一覧へ</a><a href="project-vr.html">次の作品を見る ↗</a></nav>
-    </div>
-  </main>
-  <footer><p>© 2026 Hiten Kato</p></footer>
+
+    <header>
+        <p class="nav-back"><a href="index.html">&larr; Return to Top</a></p>
+        <h1>身体データを基にしたフルフェイスマスクの設計と立体出力</h1>
+        <p class="tagline">3D空間での形状検証、3Dプリンターによる出力、および造形技術の融合</p>
+    </header>
+
+    <main>
+        <section class="project-hero">
+            <img src="images/mask/mask-main.jpg" alt="フルフェイスマスク完成成果物">
+        </section>
+
+        <section class="project-meta">
+            <div class="meta-grid">
+                <div>
+                    <h4>Role</h4>
+                    <p>3D Modeling, Digital Adjustment, 3D Printing, Painting</p>
+                </div>
+                <div>
+                    <h4>Tools / Hardware</h4>
+                    <p>Blender, Adventurer4, FlashPrint, Airbrush</p>
+                </div>
+                <div>
+                    <h4>Period</h4>
+                    <p>2025.04 - 2025.09</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-body">
+            
+            <div class="block">
+                <h2>01. 概要</h2>
+                <p>サークルでのコスプレ活動において、自身が着用する小道具としてのフルフェイスマスクを制作。Blenderを用いた三次元空間上での形状調整から、3Dプリンター（Adventurer4）を用いた出力、エアブラシ塗装による表面処理までの一連の工程を経験したプロジェクトです。</p>
+            </div>
+
+            <div class="block">
+                <h2>02. 設計プロセスと三次元検証</h2>
+                
+                <div class="project-split-container">
+                    
+                    <div class="split-text">
+                        <h3>自身の顔メッシュを基準とした形状調整</h3>
+                        <p>自身が確実に着用できる密着性と快適性を両立させるため、スマホアプリを用いて自分の顔を三次元スキャンし、頭部メッシュデータとしてBlenderにインポート。このデータを基準に、マスクの裏面構造が顔と干渉しないようミリ単位で形状を調整しました。試作を繰り返すことなく、デジタル空間上で装着時の隙間を計算・最適化しています。</p>
+                        
+                        <h3>Blenderの習熟を兼ねた構造設計</h3>
+                        <p>寸法の正確な測定や出力用データの設計においてはCADを用いるのが効率的ですが、本プロジェクトでは3DCGツールであるBlenderのモデリング技術習熟も目的として設定。外見の意匠性を追求しつつ、3Dプリンターで出力する際の積層方向の考慮、サポート材を減らすためのパーツ分割、強度を保つための肉厚の均一化など、製造上の制約を考慮したデータ作成を行いました。</p>
+                    </div>
+                    
+                    <div class="split-image-container">
+                        <img src="images/mask/mask-fit.jpg" alt="Blenderによる形状調整画面" class="img-vertical">
+                        <p class="caption">// 三次元検証：顔データとマスク構造の適合および隙間の最適化</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="block">
+                <h2>03. 物理出力と質感表現</h2>
+                
+                <div class="project-split-container">
+                    
+                    <div class="split-text">
+                        <h3>3Dプリンターによる実物出力</h3>
+                        <p>設計したデータをスライサーソフト（FlashPrint）にインポートし、充填率や積層ピッチを最適化して3Dプリンター（Adventurer4）で出力。データ通りの正確な造形物を得るための設定調整を行いました。</p>
+                        
+                        <h3>質感を制御する後加工とエアブラシ塗装</h3>
+                        <p>出力品特有の積層痕を消去するため、サンドペーパーでの研磨とパテ・サフェーサーによる表面処理を反復。凹凸を平滑にした後、エアブラシを用いて独自のカラーリングを施しました。デジタル空間で作成した形状を、素材の特性を活かしながら物理世界に物質化させるプロセスを実践しました。</p>
+                    </div>
+                    
+                    <div class="split-image-container">
+                        <img src="images/mask/mask-print.jpg" alt="3Dプリンター出力および後加工プロセス" class="img-vertical">
+                        <p class="caption">// 製造プロセス：積層痕の研磨処理とエアブラシを用いた表面質感の調整</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hiten Kato. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

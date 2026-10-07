@@ -1,159 +1,763 @@
 @charset "UTF-8";
-:root{--paper:#f5f2ec;--ink:#17211f;--muted:#626b66;--line:#c8cec7;--accent:#c24d32;--max:1240px}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{color:inherit}
-a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
-::selection{background:#d9ad9f}
-.skip-link{position:absolute;left:12px;top:-100px;background:var(--ink);color:white;padding:8px 14px;z-index:20}
-.skip-link:focus{top:12px}
-.eyebrow,.work-index,.practice-num,.intro-note,.intro-side-note{font-family:"DM Mono",monospace;letter-spacing:.045em}
-.eyebrow{font-size:.72rem;text-transform:uppercase;color:var(--accent);margin:0 0 25px}
-.heading-period,.mark-dot{color:var(--accent)}
 
-/* Home: a personal editorial page, with the actual work as the visual language. */
-.home-page .site-header{max-width:var(--max);margin:auto;padding:25px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
-.site-mark{font-family:"DM Mono",monospace;font-size:1.04rem;font-weight:500;letter-spacing:-.025em;text-decoration:none}
-.site-header nav{display:flex;gap:32px}
-.site-header nav a{font-size:.8rem;text-decoration:none;transition:color .2s}
-.site-header nav a:hover{color:var(--accent)}
-.home-page main{max-width:var(--max);margin:auto;padding:0 30px}
-.intro{min-height:660px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(280px,.72fr);gap:8%;align-items:center;position:relative;padding:75px 0 98px;border-bottom:1px solid var(--ink)}
-.intro-copy{padding-bottom:24px}
-.intro h1{font-size:clamp(3rem,5.4vw,5.7rem);line-height:1.35;letter-spacing:-.075em;font-weight:600;margin:0 0 36px}
-.intro h1 em{font-style:normal;position:relative;white-space:nowrap}
-.intro h1 em::after{content:"";position:absolute;height:5px;background:var(--accent);bottom:-7px;left:1%;right:2%;transform:rotate(-1deg)}
-.intro-lead{max-width:560px;font-size:1rem;line-height:2.1;margin:0}
-.intro-actions{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:45px}
-.text-link{display:inline-flex;gap:48px;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;font-size:.85rem;padding:15px 19px;min-width:168px;transition:background .2s,transform .2s}
-.text-link:hover{background:var(--accent);transform:translateY(-2px)}
-.intro-note{font-size:.68rem;color:var(--muted)}
-.intro-portrait{margin:0;transform:rotate(2deg);background:#e2e1d7;padding:11px 11px 8px;box-shadow:14px 17px 0 #d9ddd6}
-.intro-portrait img{width:100%;height:430px;object-fit:cover;object-position:50% 40%;filter:saturate(.78)}
-.intro-portrait figcaption{display:flex;justify-content:space-between;gap:10px;font-size:.7rem;padding:7px 3px 0;font-family:"DM Mono","Noto Sans JP",sans-serif}
-.intro-side-note{position:absolute;right:0;bottom:25px;font-size:.67rem;color:var(--muted);margin:0}
-.home-page section{scroll-margin-top:30px}
-.works-section,.about-section,.practice-section{padding:105px 0 110px;border-bottom:1px solid var(--ink)}
-.section-heading{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;align-items:end;margin-bottom:64px}
-.section-heading .eyebrow{grid-column:1/-1}
-.section-heading h2,.contact-section h2{font-size:clamp(2.2rem,4.2vw,4rem);letter-spacing:-.07em;line-height:1.35;font-weight:600;margin:0}
-.section-heading>p:last-child{max-width:410px;margin:0 0 5px;justify-self:end;color:var(--muted);font-size:.9rem}
-.works-list{display:flex;flex-direction:column;gap:102px}
-.work{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:6%;align-items:center}
-.work-reverse{grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr)}
-.work-reverse .work-image{grid-column:2;grid-row:1}
-.work-reverse .work-content{grid-column:1;grid-row:1}
-.work-image{display:block;overflow:hidden;background:#d8dedb}
-.work-image img{width:100%;height:490px;object-fit:cover;transition:transform .5s ease}
-.work-image:hover img,.work-small-image:hover img{transform:scale(1.035)}
-.work-featured .work-image img{object-position:50% 50%}
-.work-content{max-width:380px}
-.work-index{display:flex;gap:20px;align-items:center;color:var(--accent);font-size:.75rem;margin:0 0 24px}
-.work-index span{color:var(--muted);font-size:.69rem}
-.work h3{font-size:clamp(1.8rem,3vw,3rem);line-height:1.45;letter-spacing:-.06em;font-weight:600;margin:0 0 24px}
-.work h3 a,.work-small h3 a{text-decoration:none}
-.work h3 a:hover,.work-small h3 a:hover{color:var(--accent)}
-.work-content>p:not(.work-index){font-size:.9rem;color:#3c4843;line-height:1.95;margin:0 0 27px}
-.work-more{display:inline-flex;gap:30px;align-items:center;justify-content:space-between;text-decoration:none;font-size:.78rem;font-weight:700;border-bottom:1px solid var(--ink);padding:0 0 5px;transition:color .2s,border-color .2s}
-.work-more:hover{color:var(--accent);border-color:var(--accent)}
-.works-secondary{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid var(--line);padding-top:58px}
-.work-small-image{display:block;overflow:hidden;background:#d8dedb}
-.work-small-image img{width:100%;height:315px;object-fit:cover;transition:transform .5s}
-.work-small:first-child .work-small-image img{object-position:50% 42%}
-.work-small .work-index{margin:24px 0 12px}
-.work-small h3{font-size:1.45rem;line-height:1.5;letter-spacing:-.04em;margin:0 0 12px}
-.work-small p:not(.work-index){font-size:.84rem;max-width:480px;color:#3c4843;margin:0 0 17px}
-.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:10%}
-.about-statement{font-size:clamp(1.65rem,2.7vw,2.9rem);font-weight:600;line-height:1.55;letter-spacing:-.05em;margin:0}
-.about-statement span{color:var(--accent)}
-.about-detail>p{margin:0 0 20px;font-size:.9rem;line-height:2.15}
-.about-facts{margin:38px 0 0;border-top:1px solid var(--line)}
-.about-facts div{display:grid;grid-template-columns:100px 1fr;gap:15px;border-bottom:1px solid var(--line);padding:14px 0;font-size:.78rem}
-.about-facts dt{color:var(--muted)}.about-facts dd{margin:0}
-.practice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink)}
-.practice-grid>div{padding:25px 20px 0 0;margin-right:20px;border-right:1px solid var(--line)}
-.practice-grid>div:last-child{border-right:0;margin-right:0}
-.practice-num{font-size:.72rem;color:var(--accent)}
-.practice-grid h3{font-size:1.15rem;margin:19px 0 11px}
-.practice-grid p{font-size:.78rem;color:#46524b;line-height:1.95;margin:0}
-.contact-section{padding:110px 0 120px;text-align:center}
-.contact-section h2{margin:0 0 19px}
-.contact-section>p:not(.eyebrow){font-size:.9rem;color:var(--muted);margin-bottom:30px}
-.contact-link{display:inline-flex;gap:55px;justify-content:space-between;background:var(--accent);color:white;padding:15px 20px;text-decoration:none;font-size:.83rem;font-weight:700;transition:background .2s}
-.contact-link:hover{background:var(--ink)}
-.site-footer{max-width:var(--max);margin:auto;padding:28px 30px 42px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:"DM Mono","Noto Sans JP",sans-serif;font-size:.7rem;color:var(--muted)}
-.site-footer a{text-decoration:none}
-
-/* Existing project stories share the same quieter page language. */
-body:not(.home-page){padding:0 28px}
-body:not(.home-page)>header,body:not(.home-page)>main,body:not(.home-page)>footer{max-width:950px;margin-left:auto;margin-right:auto}
-body:not(.home-page)>header{padding:40px 0 35px;border-bottom:1px solid var(--ink)}
-.nav-back{margin:0 0 55px;font-size:.8rem}.nav-back a{text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:5px}.nav-back a:hover{color:var(--accent);border-color:var(--accent)}
-body:not(.home-page)>header h1{font-size:clamp(2rem,4.3vw,4rem);line-height:1.4;letter-spacing:-.06em;font-weight:600;margin:0 0 16px;max-width:850px}
-.tagline{font-size:.9rem;line-height:1.8;color:var(--muted);margin:0}
-body:not(.home-page)>main{padding:45px 0 70px}
-.project-hero{margin:0 0 45px}.project-hero img{width:100%;max-height:550px;object-fit:cover}.project-hero img.img-contain{object-fit:contain;background:#e5e6e1}
-.project-meta{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:21px 0;margin-bottom:78px}
-.meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.meta-grid h4{font-family:"DM Mono",monospace;font-size:.7rem;color:var(--accent);margin:0 0 7px;text-transform:uppercase;font-weight:500}
-.meta-grid p{font-size:.8rem;margin:0;line-height:1.6}
-.project-body{max-width:850px;margin:auto}
-.project-body .block{margin-bottom:75px}
-.project-body h2{font-size:1.7rem;letter-spacing:-.04em;line-height:1.5;padding-bottom:15px;margin:0 0 25px;border-bottom:1px solid var(--line)}
-.project-body h3{font-size:1.1rem;line-height:1.6;margin:32px 0 12px}
-.project-body p{font-size:.9rem;line-height:2.05;margin:0 0 18px}
-.project-split-container{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:35px;align-items:start;margin-top:26px}
-.split-image-container{min-width:0}.split-image-container img{width:100%;height:auto;max-height:510px;object-fit:contain}.split-image-container .caption,.project-body .caption{color:var(--muted);font-size:.72rem;line-height:1.6;margin:8px 0 0}
-.project-gallery-slider{display:flex;overflow-x:auto;gap:15px;scroll-snap-type:x mandatory;padding-bottom:10px}
-.slider-item{flex:0 0 68%;scroll-snap-align:start}.slider-item img{width:100%;height:330px;object-fit:cover}
-.adp-section{grid-template-columns:1.4fr .7fr}.adp-section img{max-height:340px;object-fit:contain}
-.process-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.process-figure{margin:0}.process-figure img{width:100%;height:290px;object-fit:contain;background:#e5e6e1}.process-figure figcaption{color:var(--muted);font-size:.75rem;margin-top:9px}
-.project-end-nav{display:flex;justify-content:space-between;gap:25px;border-top:1px solid var(--ink);padding:24px 0;margin-top:50px;font-size:.82rem}
-.project-end-nav a{text-decoration:none;border-bottom:1px solid currentColor}.project-end-nav a:hover{color:var(--accent)}
-body:not(.home-page)>footer{border-top:1px solid var(--line);padding:30px 0 45px;color:var(--muted);font-family:"DM Mono",monospace;font-size:.72rem}
-body:not(.home-page)>footer p{margin:0}
-
-@media(max-width:900px){
-  .intro{grid-template-columns:1fr .72fr;gap:35px;min-height:0}
-  .intro-portrait img{height:360px}
-  .work-image img{height:390px}
-  .practice-grid{grid-template-columns:repeat(2,1fr);row-gap:35px}
-  .practice-grid>div:nth-child(2){border-right:0}
+/* ==========================================================================
+   1. デザインシステム・変数の定義（インダストリアル・ミニマリズム）
+   ========================================================================== */
+:root {
+    --bg-color: #fafafa;
+    --text-color: #111111;
+    --text-muted: #666666;
+    --accent-color: #000000;
+    --border-color: #222222;
+    --border-light: #e0e0e0;
+    --max-width: 1040px;
+    --grid-size: 20px;
 }
-@media(max-width:760px){
-  .home-page .site-header{padding:19px 18px;gap:20px;align-items:flex-start}
-  .site-header nav{gap:16px;flex-wrap:wrap;justify-content:flex-end}.site-header nav a{font-size:.72rem}
-  .home-page main{padding:0 18px}
-  .intro{padding:70px 0 75px;display:flex;flex-direction:column;align-items:stretch;gap:50px}
-  .intro-copy{padding:0}.intro h1{font-size:clamp(2.5rem,8vw,4.2rem);margin-bottom:32px}
-  .intro h1 em{white-space:normal}.intro-lead{font-size:.9rem}
-  .intro-actions{margin-top:30px}.intro-portrait{width:min(80%,350px);align-self:center;transform:rotate(2deg)}
-  .intro-portrait img{height:auto;aspect-ratio:1/1;object-fit:cover}.intro-side-note{bottom:17px}
-  .works-section,.about-section,.practice-section{padding:75px 0 80px}
-  .section-heading{display:block;margin-bottom:40px}.section-heading h2{font-size:2.25rem}.section-heading>p:last-child{margin:17px 0 0;font-size:.83rem}
-  .works-list{gap:72px}
-  .work,.work-reverse{display:flex;flex-direction:column;gap:22px;align-items:stretch}
-  .work-image{width:100%}.work-image img{height:auto;aspect-ratio:4/3}
-  .work-content{max-width:none}.work-index{margin-bottom:14px}.work h3{font-size:2rem;margin-bottom:15px}.work-content>p:not(.work-index){margin-bottom:15px}
-  .works-secondary{grid-template-columns:1fr;gap:55px;padding-top:45px}
-  .work-small-image img{height:auto;aspect-ratio:4/3}
-  .about-layout{grid-template-columns:1fr;gap:26px}
-  .about-statement{font-size:1.75rem}
-  .practice-grid{grid-template-columns:1fr 1fr;gap:25px 16px}
-  .practice-grid>div{margin:0;padding:20px 10px 0 0}.practice-grid h3{font-size:1rem}
-  .contact-section{padding:80px 0}
-  .site-footer{padding:23px 18px 35px}
-  body:not(.home-page){padding:0 18px}
-  body:not(.home-page)>header{padding:25px 0 30px}.nav-back{margin-bottom:40px}
-  .project-meta{margin-bottom:55px}.meta-grid{grid-template-columns:1fr;gap:15px}
-  .project-body h2{font-size:1.4rem}
-  .project-split-container,.adp-section{display:block}
-  .split-image-container{margin-top:22px}
-  .slider-item{flex-basis:86%}.slider-item img{height:230px}
-  .process-gallery{grid-template-columns:1fr}.process-figure img{height:auto;max-height:340px}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-@media(max-width:390px){.site-header nav{gap:10px}.site-mark{font-size:.85rem}.intro h1{font-size:2.25rem}.practice-grid{grid-template-columns:1fr}.practice-grid>div{border-right:0}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+body {
+    font-family: "Roboto Mono", "Noto Sans JP", sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. レイアウト ＆ 構造（ヘッダー・ナビゲーション）
+   ========================================================================== */
+header {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 80px 0 40px 0;
+    border-bottom: 2px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+nav {
+    margin-top: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+section h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    display: inline-block;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+/* ==========================================================================
+   3. コンポーネント（Works：ソリッド・データ構造）
+   ========================================================================== */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+}
+
+.work-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    background-color: #ffffff;
+    padding: 0;
+    transition: background-color 0.2s ease;
+}
+
+.work-card:hover {
+    background-color: #f0f0f0;
+}
+
+.work-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.work-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.work-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.work-card p {
+    font-size: 0.85rem;
+    color: #444444;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.btn {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: var(--text-color);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color);
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: var(--text-color);
+}
+
+/* ==========================================================================
+   4. About ＆ Skills セクションの最適化
+   ========================================================================== */
+.profile-container {
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.about-flex-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 40px;
+}
+
+.profile-thumb {
+    flex: 0 0 240px;
+    width: 240px;
+    height: 240px;
+    border: 1px solid var(--border-color);
+    background-color: #e9ecef;
+}
+
+.profile-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-text h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.profile-text p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #222222;
+    text-align: justify;
+}
+
+#skills ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+#skills li {
+    border: 1px solid var(--border-light);
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+#skills li strong {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   5. 個別ページ（Project Detail）用のレイアウト調整
+   ========================================================================== */
+.nav-back {
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+}
+
+.project-hero img {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.project-hero img.img-contain {
+    max-height: none;
+    object-fit: contain;
+}
+
+.project-meta {
+    margin: 40px 0;
+    padding: 25px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meta-grid h4 {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.meta-grid p {
+    font-size: 0.9rem;
+}
+
+.project-body h2 {
+    font-size: 1.3rem;
+    margin: 40px 0 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.project-body h3 {
+    font-size: 1.05rem;
+    margin: 25px 0 10px 0;
+}
+
+.project-body p {
+    font-size: 0.9rem;
+    color: #222222;
+}
+
+.project-images-sub {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.project-images-sub .img-container {
+    flex: 1;
+    min-width: 280px;
+}
+
+.project-images-sub img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+}
+
+.project-images-sub .caption {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+footer {
+    max-width: var(--max-width);
+    margin: 100px auto 0 auto;
+    text-align: left;
+    padding: 40px 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   6. インダストリアル・フェードイン（スクロールアニメーション）
+   ========================================================================== */
+.js-fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1), transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+.js-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.works-grid .work-card:nth-child(1) { transition-delay: 0.0s; }
+.works-grid .work-card:nth-child(2) { transition-delay: 0.2s; }
+.works-grid .work-card:nth-child(3) { transition-delay: 0.4s; }
+.works-grid .work-card:nth-child(4) { transition-delay: 0.6s; }
+
+/* ==========================================================================
+   7. レスポンシブ対応（モバイル最適化）
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0 15px;
+    }
+
+    header {
+        padding: 40px 0 20px 0;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    main {
+        padding: 30px 0;
+        width: 100%;
+    }
+
+    section {
+        margin-bottom: 60px;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .work-card img {
+        height: 200px;
+    }
+
+    .work-card-content {
+        padding: 20px;
+    }
+
+    .work-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .about-flex-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 25px;
+    }
+
+    .profile-thumb {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .profile-text {
+        width: 100%;
+    }
+
+    #skills ul {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+    }
+
+    #skills li {
+        padding: 15px;
+    }
+
+    .project-hero img {
+        max-height: 300px;
+    }
+
+    .project-images-sub {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-images-sub .img-container {
+        width: 100%;
+    }
+}
+/* ==========================================================================
+   12. 縦型画像（ポスター等）の巨大化防止・上限設定
+   ========================================================================== */
+/* 縦長画像が画面の大半を占拠するのを防ぐため、高さの上限を500pxに制限。
+   width: auto と組み合わせることで、アスペクト比を崩さずにスマートに縮小表示。
+*/
+.project-body img.img-vertical {
+    display: block;
+    max-height: 540px;  /* 画面内に説明文と画像が同時に収まる最適な高さ */
+    width: auto;        /* 横幅100%を解除し、比率に合わせて自動縮小 */
+    margin: 0 0 10px 0; /* 左揃えのインダストリアルなレイアウトを維持 */
+}
+
+/* ==========================================================================
+   13. 個別ページ用：テキスト・画像 左右分割（2カラム）レイアウト
+   ========================================================================== */
+
+/* PC環境ではFlexboxを使用し、テキストと縦長画像を美しく左右に整列。
+   align-items: flex-start により、画像の高さにテキストが引っ張られるのを防止。
+*/
+.project-split-container {
+    display: flex;
+    gap: 40px; /* 2カラム間のソリッドな余白を確保 */
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* 左側テキスト：全体の60%の幅を割り当て、読みやすさを担保 */
+.split-text {
+    flex: 0 0 60%;
+}
+
+/* 右側画像：残りの領域を充当し、画像がはみ出さないようにマキシマムを指定 */
+.split-image-container {
+    flex: 1;
+    min-width: 0; /* Flexbox内の画像縮小バグを防止するセーフティ */
+}
+
+/* 2カラム内の縦型画像スタイルを上書き最適化 */
+.split-image-container img.img-vertical {
+    width: 100%;       /* 親コンテナ（右側エリア）の幅にピタッと合わせる */
+    max-height: 500px; /* PC画面で一目で全体が収まる高さに微調整 */
+    object-fit: contain;
+    margin: 0 0 10px 0;
+}
+
+/* モバイル環境（スマホ画面）でのフォールバック処理をメディアクエリで明示 */
+@media screen and (max-width: 768px) {
+    .project-split-container {
+        flex-direction: column; /* スマホでは強制的に縦並び1カラムへ変更 */
+        gap: 20px;
+    }
+    
+    .split-text,
+    .split-image-container {
+        width: 100%; /* 横幅いっぱいに広げる */
+    }
+    
+    .split-image-container img.img-vertical {
+        max-height: 400px; /* スマホの画面高に合わせて上限をタイトに */
+    }
+}
+/* ==========================================================================
+   14. 作品①専用：横流しギャラリー（CSS Scroll Snap）＆ ADPミニ画像レイアウト
+   ========================================================================== */
+
+/* 02最後：横スクロール・ギャラリー
+   overflow-x: auto と scroll-snap-type により、JavaScriptなしで滑らかな1枚止まりを実現
+*/
+.project-gallery-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch; /* iOSでのスクロールを滑らかにする対策 */
+}
+
+/* スライダー内の各要素：1画面に1.5枚〜2枚見えるように幅を制限 */
+.slider-item {
+    flex: 0 0 60%; /* PC画面で程よく次の画像が見える絶妙なサイズ（60%） */
+    scroll-snap-align: start; /* スクロールが止まる位置を画像の左端に固定 */
+    min-width: 300px;
+}
+
+.slider-item img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+/* 03：ADP演習用の小さめ2連画像
+   max-width を抑え、テキストの邪魔をしないサイズ感に制限
+*/
+.project-adp-thumbs {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    max-width: 700px; /* テキストの幅（700px）に揃えて締まりを出す */
+}
+
+.project-adp-thumbs .thumb-container {
+    flex: 1;
+}
+
+.project-adp-thumbs img {
+    width: 100%;
+    height: 180px; /* 高さを抑えて「小さめの画像」を維持 */
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+/* モバイル環境での最適化：スライダーの幅を広げ、2連画像を縦並びに */
+@media screen and (max-width: 768px) {
+    .slider-item {
+        flex: 0 0 85%; /* スマホでは1枚が大きく見えるように調整 */
+    }
+    
+    .slider-item img {
+        height: 240px;
+    }
+    
+    .project-adp-thumbs {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .project-adp-thumbs img {
+        height: 160px;
+    }
+}
+/* ==========================================================================
+   15. スライダー内画像のスタイル競合バグ修正（最優先適用）
+   ========================================================================== */
+/* セクション5の全般画像設定（width: 100%; height: auto;）がスライダー内に
+   干渉するのを防ぐため、詳細度を上げて明示的に上書き再定義。
+*/
+.project-gallery-slider .slider-item img {
+    width: 100% !important;  /* 親要素である .slider-item の幅（60%）に完全に固定 */
+    height: 360px !important; /* 高さを360pxに固定して、縦への巨大化を防止 */
+    object-fit: cover;
+}
+
+/* スマホ環境下での高さの上書き設定 */
+@media screen and (max-width: 768px) {
+    .project-gallery-slider .slider-item img {
+        height: 240px !important; /* スマホでは高さを240pxに縮小 */
+    }
+}
+/* ==========================================================================
+   16. 作品①専用：ADPセクションの画像比率最適化 ＆ 透過PNG表示バグ修正（再調整版）
+   ========================================================================== */
+
+/* 1079*497のワイド検証画面と、縦型完成写真をバランスよく見せるための比率定義 */
+.adp-section .flex-60 {
+    flex: 0 0 62%; /* ワイドな画像をしっかり魅せるために少し幅を広げる */
+}
+
+.adp-section .flex-40 {
+    flex: 0 0 34%; /* 右側の写真を適切な幅に収めて全体のバランスを維持 */
+}
+
+/* 左側：Unity合成画面（1079*497比率、枠線なし透過仕様） */
+.adp-section img.img-adp-wide {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1079 / 497; /* 1079*497の比率を完全に固定して歪みを防止 */
+    object-fit: contain;
+    background: transparent;  /* 背景を完全に透過 */
+    border: none !important;  /* 枠線を完全に消去し、透過オブジェクトを背景に馴染ませる */
+    margin-bottom: 10px;
+}
+
+/* 右側：完成写真の縦長スタイル調整（こちらは境界をはっきりさせるため枠線を維持） */
+.adp-section img.img-adp-vertical {
+    width: 100%;
+    height: auto;
+    max-height: 340px;        /* 左側のワイド画像の高さと揃うように上限を再調整 */
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+/* スマホ環境では、窮屈にならないよう1カラム（縦並び）へ自動フォールバック */
+@media screen and (max-width: 768px) {
+    .adp-section .flex-60,
+    .adp-section .flex-40 {
+        width: 100%;
+        flex: none;
+    }
+    
+    .adp-section img.img-adp-wide,
+    .adp-section img.img-adp-vertical {
+        max-height: none;
+        height: auto;
+    }
+}
+/* ==========================================================================
+   17. スキルセクション：インダストリアル・データシート（テーブルレイアウト）
+   ========================================================================== */
+.skills-matrix-container {
+    width: 100%;
+    overflow-x: auto; /* スマホでは表が横スクロールして崩れないように保護 */
+    border: 1px solid var(--border-color);
+    background-color: #ffffff;
+}
+
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.skills-table th, 
+.skills-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+}
+
+.skills-table th:last-child, 
+.skills-table td:last-child {
+    border-right: none;
+}
+
+.skills-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ヘッダー行：濃い境界線で引き締める */
+.skills-table th {
+    background-color: #fcfcfc;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-color);
+    letter-spacing: 0.05em;
+}
+
+.table-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: none;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* カテゴリ列の固定幅と強調 */
+.cat-title {
+    font-weight: 700;
+    background-color: #fcfcfc;
+    width: 180px;
+    color: var(--text-color);
+}
+
+/* スキルバッジのソリッドデザイン */
+.skill-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 4px;
+    border: 1px solid var(--border-color);
+    background-color: #ffffff;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* 現在注力している最重要スキルを反転カラーで強調 */
+.skill-tag.focus {
+    background-color: var(--text-color);
+    color: #ffffff;
+}
+
+/* 基礎知識レベルは線を細くして情報の優先度を整理 */
+.skill-tag.muted {
+    border-color: var(--border-light);
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* モバイル環境でのテーブル表示の最適化 */
+@media screen and (max-width: 768px) {
+    .skills-table th, 
+    .skills-table td {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+    .cat-title {
+        width: 110px;
+    }
+}
+/* ==========================================================================
+   18. スキルセクション：2カラム構造への最適化
+   ========================================================================== */
+/* 2カラム化に伴い、各列の幅の比率を再定義して締まりのあるレイアウトを維持 */
+.skills-table.style-2col th:nth-child(2),
+.skills-table.style-2col td:nth-child(2) {
+    width: 40%; /* 注力スキルのエリア */
+}
+
+.skills-table.style-2col th:nth-child(3),
+.skills-table.style-2col td:nth-child(3) {
+    width: 45%; /* 基礎知識のエリア */
+}
